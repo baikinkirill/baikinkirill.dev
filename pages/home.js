@@ -19,7 +19,6 @@ import {
     AmpIncludeAmpCarousel,
 } from '../components/amp/AmpCustomElement'
 import {useRouter} from "next/router";
-export const config = { amp: false }
 
 
 export default class extends React.Component {

@@ -1,35 +1,21 @@
 import React from 'react'
-import Layout from '../components/Layout'
-
-import ampFooter1 from "../components/ampFooter"
-import ampHeader1 from "../components/ampHeader"
+import Layout from '../../components/Layout'
+import { useRouter } from 'next/router'
+import ampFooter1 from "../../components/ampFooter"
+import ampHeader1 from "../../components/ampHeader"
 import NextHead from 'next/head'
 
 import {
     AmpIncludeAmpList,
     AmpIncludeAmpCarousel,
-} from '../components/amp/AmpCustomElement'
-import Home from "./home"
+} from '../../components/amp/AmpCustomElement'
 import Head from "next/head";
 import {NextSeo} from "next-seo";
 import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
 
 
 export const config = { amp: true }
-export default class extends React.Component {
-
-    static async getInitialProps({ req, query }) {
-        const amp = query.amp == '1'
-        const url = req ? req.url : window.location.href
-        const ampUrl = url
-        return { amp, ampUrl }
-    }
-
-    render() {
-        const {ampUrl} = this.props
-
-        return (
-
+const Post=({ampUrl})=> (
           <>
               <style jsx>{`
               @font-face {
@@ -56,7 +42,8 @@ export default class extends React.Component {
 
               <Head>
 
-
+                  <link rel="amphtml" href={ampUrl}/>
+                  <link rel="canonical" href={ampUrl}/>
 
               </Head>
               <NextSeo
@@ -116,7 +103,7 @@ export default class extends React.Component {
                               <div>
 
                                   <h1>
-                                      Путин согласился обнулить свои президентские сроки. Главное из его выступления перед депутатами (вдруг вы не смотрели)
+                                      {ampUrl}
                                   </h1>
                                   <h5>Creator • Published today</h5>
                                   <div className="text">
@@ -145,6 +132,14 @@ export default class extends React.Component {
 
               </Layout>
           </>
-        )
-    }
-}
+
+
+)
+Post.getInitialProps = async ({ req,query }) => {
+    const amp = query.amp
+    const url = req ? req.url : window.location.href
+    const ampUrl = url
+    return { amp, ampUrl }
+    return { ampUrl };
+};
+export default Post
