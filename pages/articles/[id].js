@@ -1,19 +1,9 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-import { useRouter } from 'next/router'
 import ampFooter1 from "../../components/ampFooter"
 import ampHeader1 from "../../components/ampHeader"
-import AmpState from '../../components/amp/AmpState'
-import AmpScript from '../../components/amp/AmpScript'
-import NextHead from 'next/head'
 import fetch from 'isomorphic-unfetch'
-import {
-    AmpIncludeAmpList,
-    AmpIncludeAmpCarousel,
-} from '../../components/amp/AmpCustomElement'
 import Head from "next/head";
-import {NextSeo} from "next-seo";
-import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
 
 
 export const config = { amp: true }
@@ -31,22 +21,22 @@ const Post=({ampUrl,stars})=> (
                   <meta name="description" content="Все матчи, запланированные на следующую неделю в рамках Лиги чемпионов и Лиги Европы, отложены на неопределенный срок из-за ситуации с распространением коронавируса. Об этом говорится в заявлении Союза европейских футбольных ассоциаций (УЕФА)."/>
                   <meta property="og:title" content="Отменены матчи Лиги чемпионов и Лиги Европы — Meduza"/>
                   <meta property="og:description" content="Все матчи, запланированные на следующую неделю в рамках Лиги чемпионов и Лиги Европы, отложены на неопределенный срок из-за ситуации с распространением коронавируса. Об этом говорится в заявлении Союза европейских футбольных ассоциаций (УЕФА)."/>
-                  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"https://meduza.io/news/2020/03/13/otmeneny-matchi-ligi-chempionov-i-ligi-evropy\",\"headline\":\"Отменены матчи Лиги чемпионов и Лиги Европы\",\"datePublished\":\"2020-03-13T10:12:09Z\",\"dateModified\":\"2020-03-13T11:33:09Z\",\"description\":\"Все матчи, запланированные на следующую неделю в рамках Лиги чемпионов и Лиги Европы, отложены на неопределенный срок из-за ситуации с распространением коронавируса. Об этом говорится в заявлении Союза европейских футбольных ассоциаций (УЕФА).\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Meduza\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://meduza.io/image/attachments/images/000/021/713/original/NtP7x9vkfRrYjr7hCbHRPQ.png\",\"width\":286,\"height\":60}},\"author\":{\"@type\":\"Organization\",\"name\":\"Meduza\"},\"image\":\"https://meduza.io/imgly/share/1584099189/news/2020/03/13/otmeneny-matchi-ligi-chempionov-i-ligi-evropy\"}"}}></script>
+                  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"/\",\"headline\":\"Отменены матчи Лиги чемпионов и Лиги Европы\",\"datePublished\":\"2020-03-13T10:12:09Z\",\"dateModified\":\"2020-03-13T11:33:09Z\",\"description\":\"Все матчи, запланированные на следующую неделю в рамках Лиги чемпионов и Лиги Европы, отложены на неопределенный срок из-за ситуации с распространением коронавируса. Об этом говорится в заявлении Союза европейских футбольных ассоциаций (УЕФА).\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"FineBot\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"/static/images/ic_launcher.png\",\"width\":286,\"height\":60}},\"author\":{\"@type\":\"Organization\",\"name\":\"FineBot\"},\"image\":\"/static/images/ic_launcher.png\"}"}}></script>
                   <meta property="og:site_name" content="Meduza"/>
-                  <meta property="og:image" content="https://meduza.io/images/share-meduza.png"/>
+                  <meta property="og:image" content="/static/images/ic_launcher.png"/>
                   <meta property="og:image:width" content="1200"/>
                   <meta property="og:image:height" content="630"/>
-                  <meta name="twitter:image" content="https://meduza.io/images/share-meduza.png"/>
-                  <meta property="vk:image" content="https://meduza.io/images/share-meduza.png"/>
-                  <link rel="icon" type="image/png" sizes="32x32" href="https://meduza.io/favicon-32.png"/>
-                  <link rel="icon" type="image/png" sizes="16x16" href="https://meduza.io/favicon-16.png"/>
-                  <link rel="apple-touch-icon" href="https://meduza.io/apple-touch-icon-1024.png"/>
-                  <link rel="apple-touch-icon" sizes="76x76" href="https://meduza.io/apple-touch-icon-76.png"/>
-                  <link rel="apple-touch-icon" sizes="120x120" href="https://meduza.io/apple-touch-icon-120.png"/>
-                  <link rel="apple-touch-icon" sizes="152x152" href="https://meduza.io/apple-touch-icon-152.png"/>
-                  <link rel="apple-touch-icon" sizes="180x180" href="https://meduza.io/apple-touch-icon-180.png"/>
-                  <link rel="mask-icon" href="https://meduza.io/image/attachments/images/000/017/651/original/qAvIE71BRQOTl9q96t0kRA.svg" color="B88B58"/>
-                  <link rel="image_src" href="https://meduza.io/images/share-meduza.png"/>
+                  <meta name="twitter:image" content="/static/images/ic_launcher.png"/>
+                  <meta property="vk:image" content="/static/images/ic_launcher.png"/>
+                  <link rel="icon" type="image/png" sizes="32x32" href="/static/images/ic_launcher.png"/>
+                  <link rel="icon" type="image/png" sizes="16x16" href="/static/images/ic_launcher.png"/>
+                  <link rel="apple-touch-icon" href="/static/images/ic_launcher.png"/>
+                  <link rel="apple-touch-icon" sizes="76x76" href="/static/images/ic_launcher.png"/>
+                  <link rel="apple-touch-icon" sizes="120x120" href="/static/images/ic_launcher.png"/>
+                  <link rel="apple-touch-icon" sizes="152x152" href="/static/images/ic_launcher.png"/>
+                  <link rel="apple-touch-icon" sizes="180x180" href="/static/images/ic_launcher.png"/>
+                  <link rel="mask-icon" href="/static/images/logo.png" color="B88B58"/>
+                  <link rel="image_src" href="/static/images/ic_launcher.png"/>
 
 
 
@@ -98,6 +88,12 @@ const Post=({ampUrl,stars})=> (
 
 
 )
+function generateInlineScript(script) {
+    if (typeof script === 'function') {
+        return `${script.toString()}()`
+    }
+    return String(script)
+}
 Post.getInitialProps = async ({ req,query }) => {
     const amp = query.amp
     const url = req ? req.url : window.location.href
