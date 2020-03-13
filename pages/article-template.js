@@ -31,7 +31,7 @@ export default class extends React.Component {
         return (
 
           <>
-              <style jsx>{`
+              <style amp-custom jsx>{`
               @font-face {
 	            font-family: "Rubik Medium"; /* Гарнитура шрифта */
 	            src: url("/static/fonts/Rubik-Medium.ttf"); /* Путь к файлу со шрифтом */
