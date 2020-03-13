@@ -3,8 +3,10 @@ import Layout from '../../components/Layout'
 import { useRouter } from 'next/router'
 import ampFooter1 from "../../components/ampFooter"
 import ampHeader1 from "../../components/ampHeader"
+import AmpState from '../../components/amp/AmpState'
+import AmpScript from '../../components/amp/AmpScript'
 import NextHead from 'next/head'
-
+import fetch from 'isomorphic-unfetch'
 import {
     AmpIncludeAmpList,
     AmpIncludeAmpCarousel,
@@ -15,7 +17,7 @@ import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
 
 
 export const config = { amp: true }
-const Post=({ampUrl})=> (
+const Post=({ampUrl,stars})=> (
           <>
               <style jsx>{`
               @font-face {
@@ -103,6 +105,7 @@ const Post=({ampUrl})=> (
                               <div>
 
                                   <h1>
+                                      {stars}
                                       {ampUrl}
                                   </h1>
                                   <h5>Creator • Published today</h5>
@@ -138,8 +141,10 @@ const Post=({ampUrl})=> (
 Post.getInitialProps = async ({ req,query }) => {
     const amp = query.amp
     const url = req ? req.url : window.location.href
+    const id = url.replace("/"+url.split("/")[1]+"/","")
     const ampUrl = url
-    return { amp, ampUrl }
-    return { ampUrl };
+    const res = await fetch('https://amp.dev/documentation/examples/api/time')
+    const data = await res.json();
+    return { ampUrl,stars: data.time,id }
 };
 export default Post

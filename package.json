@@ -1,18 +1,30 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
-  "private": true,
+  "name": "amp-first",
+  "version": "1.0.0",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next",
+    "start": "next start",
     "build": "next build",
-    "start": "next start"
+    "export": "next export"
   },
   "dependencies": {
-    "next": "9.2.2",
-    "react": "16.13.0",
-    "react-dom": "16.13.0",
-    "react-reveal": "^1.2.2",
+    "@zeit/next-css": "^1.0.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.1.0",
+    "htmlescape": "^1.1.1",
+    "isomorphic-unfetch": "^3.0.0",
+    "next": "latest",
+    "next-images": "^1.3.1",
+    "next-routes": "^1.4.2",
     "next-seo": "^4.4.0",
-    "htmlescape": "^1.1.1"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-reveal": "^1.2.2"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^13.9.0",
+    "@types/react": "^16.9.23",
+    "typescript": "^3.8.3"
   }
 }
