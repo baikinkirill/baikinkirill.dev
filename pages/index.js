@@ -14,11 +14,6 @@ import {NextSeo} from "next-seo";
 import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
 export let config = { amp: false }
 
-export default class extends React.Component {
-    render() {
-
-                config={amp:false}
-                return(<Home/>)
-
-    }
+export default function () {
+    return(<Home/>)
 }
