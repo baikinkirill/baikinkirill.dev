@@ -4,7 +4,7 @@ export default function () {
     return(
 
         <div style={{marginTop:"20px"}}>
-            <div style={{backgroundColor:"#dbdbdb",height:"1px",paddingRight:"40px",paddingLeft:"40px"}}></div>
+            <div amp-custom style={{backgroundColor:"#dbdbdb",height:"1px",paddingRight:"40px",paddingLeft:"40px"}}></div>
 
             <div className="hdblock">
 

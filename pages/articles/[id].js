@@ -81,7 +81,7 @@ const Post=({ampUrl,stars})=> (
                   <div className="parent">
                       <div className="hdblock">
 
-                          <div style={{textAlign:"left",display:"block",marginTop:"20px",marginRight:"10px",marginLeft:"10px"}}>
+                          <div amp-custom style={{textAlign:"left",display:"block",marginTop:"20px",marginRight:"10px",marginLeft:"10px"}}>
 
                               <div>
 
