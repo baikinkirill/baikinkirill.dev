@@ -47,51 +47,32 @@ const Post=({ampUrl,stars})=> (
                   <link rel="amphtml" href={ampUrl}/>
                   <link rel="canonical" href={ampUrl}/>
 
+
+              <title>Отменены матчи Лиги чемпионов и Лиги Европы — Meduza</title>
+                  <meta name="description" content="Все матчи, запланированные на следующую неделю в рамках Лиги чемпионов и Лиги Европы, отложены на неопределенный срок из-за ситуации с распространением коронавируса. Об этом говорится в заявлении Союза европейских футбольных ассоциаций (УЕФА)."/>
+                  <meta property="og:title" content="Отменены матчи Лиги чемпионов и Лиги Европы — Meduza"/>
+                  <meta property="og:description" content="Все матчи, запланированные на следующую неделю в рамках Лиги чемпионов и Лиги Европы, отложены на неопределенный срок из-за ситуации с распространением коронавируса. Об этом говорится в заявлении Союза европейских футбольных ассоциаций (УЕФА)."/>
+                  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"https://meduza.io/news/2020/03/13/otmeneny-matchi-ligi-chempionov-i-ligi-evropy\",\"headline\":\"Отменены матчи Лиги чемпионов и Лиги Европы\",\"datePublished\":\"2020-03-13T10:12:09Z\",\"dateModified\":\"2020-03-13T11:33:09Z\",\"description\":\"Все матчи, запланированные на следующую неделю в рамках Лиги чемпионов и Лиги Европы, отложены на неопределенный срок из-за ситуации с распространением коронавируса. Об этом говорится в заявлении Союза европейских футбольных ассоциаций (УЕФА).\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"Meduza\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://meduza.io/image/attachments/images/000/021/713/original/NtP7x9vkfRrYjr7hCbHRPQ.png\",\"width\":286,\"height\":60}},\"author\":{\"@type\":\"Organization\",\"name\":\"Meduza\"},\"image\":\"https://meduza.io/imgly/share/1584099189/news/2020/03/13/otmeneny-matchi-ligi-chempionov-i-ligi-evropy\"}"}}></script>
+                  <meta property="og:site_name" content="Meduza"/>
+                  <meta property="og:image" content="https://meduza.io/images/share-meduza.png"/>
+                  <meta property="og:image:width" content="1200"/>
+                  <meta property="og:image:height" content="630"/>
+                  <meta name="twitter:image" content="https://meduza.io/images/share-meduza.png"/>
+                  <meta property="vk:image" content="https://meduza.io/images/share-meduza.png"/>
+                  <link rel="icon" type="image/png" sizes="32x32" href="https://meduza.io/favicon-32.png"/>
+                  <link rel="icon" type="image/png" sizes="16x16" href="https://meduza.io/favicon-16.png"/>
+                  <link rel="apple-touch-icon" href="https://meduza.io/apple-touch-icon-1024.png"/>
+                  <link rel="apple-touch-icon" sizes="76x76" href="https://meduza.io/apple-touch-icon-76.png"/>
+                  <link rel="apple-touch-icon" sizes="120x120" href="https://meduza.io/apple-touch-icon-120.png"/>
+                  <link rel="apple-touch-icon" sizes="152x152" href="https://meduza.io/apple-touch-icon-152.png"/>
+                  <link rel="apple-touch-icon" sizes="180x180" href="https://meduza.io/apple-touch-icon-180.png"/>
+                  <link rel="mask-icon" href="https://meduza.io/image/attachments/images/000/017/651/original/qAvIE71BRQOTl9q96t0kRA.svg" color="B88B58"/>
+                  <link rel="image_src" href="https://meduza.io/images/share-meduza.png"/>
+
+
+
               </Head>
-              <NextSeo
-                  openGraph={{
 
-                      title: 'Путин согласился обнулить свои президентские сроки. Главное из его выступления перед депутатами (вдруг вы не смотрели)',
-                      description: 'Description of open graph article',
-                      url: 'https://cs2.finebot.site/article-template/',
-                      type: 'NewsArticle',
-                      article: {
-                          publishedTime: '2017-06-21T23:04:13Z',
-                          modifiedTime: '2018-01-21T18:04:43Z',
-                          expirationTime: '2022-12-21T22:04:11Z',
-                          section: 'Section II',
-                          image: 'https://meduza.io/impro/34JGU9TGNEBQ-JmeuFW7IS5PHfaj7fR0SZDx4WC-Cxg/fill/0/0/ce/1/aHR0cHM6Ly9tZWR1/emEuaW8vaW1hZ2Uv/YXR0YWNobWVudHMv/aW1hZ2VzLzAwNS8y/MTcvNzAwL2xhcmdl/LzBuWWUwNE5RaTVr/WGtwb1lsZ3NXWmcu/anBn.webp',
-
-                          tags: ['Tag A', 'Tag B', 'Tag C'],
-                      },
-                      images: [
-                          {
-                              url: 'https://meduza.io/impro/34JGU9TGNEBQ-JmeuFW7IS5PHfaj7fR0SZDx4WC-Cxg/fill/0/0/ce/1/aHR0cHM6Ly9tZWR1/emEuaW8vaW1hZ2Uv/YXR0YWNobWVudHMv/aW1hZ2VzLzAwNS8y/MTcvNzAwL2xhcmdl/LzBuWWUwNE5RaTVr/WGtwb1lsZ3NXWmcu/anBn.webp',
-                              width: 850,
-                              height: 650,
-                              alt: 'Photo of text',
-                          },
-                      ],
-                  }}
-              />
-              <NewsArticleJsonLd
-                  url="https://cs2.finebot.site/article-template/"
-                  title="Article headline"
-                  images={[
-                      'https://meduza.io/impro/34JGU9TGNEBQ-JmeuFW7IS5PHfaj7fR0SZDx4WC-Cxg/fill/0/0/ce/1/aHR0cHM6Ly9tZWR1/emEuaW8vaW1hZ2Uv/YXR0YWNobWVudHMv/aW1hZ2VzLzAwNS8y/MTcvNzAwL2xhcmdl/LzBuWWUwNE5RaTVr/WGtwb1lsZ3NXWmcu/anBn.webp',
-
-                  ]}
-                  image="https://meduza.io/impro/34JGU9TGNEBQ-JmeuFW7IS5PHfaj7fR0SZDx4WC-Cxg/fill/0/0/ce/1/aHR0cHM6Ly9tZWR1/emEuaW8vaW1hZ2Uv/YXR0YWNobWVudHMv/aW1hZ2VzLzAwNS8y/MTcvNzAwL2xhcmdl/LzBuWWUwNE5RaTVr/WGtwb1lsZ3NXWmcu/anBn.webp"
-                  section="politic"
-                  keywords="prayuth,taksin"
-                  datePublished="2015-02-05T08:00:00+08:00"
-                  dateModified="2015-02-05T09:00:00+08:00"
-                  authorName="Jane Blogs"
-                  publisherName="FineBot"
-                  publisherLogo="https://finebot.site/wp-content/uploads/2018/11/41EPs6tw8wL-150x150.png"
-                  description="This is a mighty good description of this article."
-                  body="This is all text for this news article"
-              />
 
               <Layout title="Путин согласился обнулить свои президентские сроки. Главное из его выступления перед депутатами (вдруг вы не смотрели) | FineBot">
                   {ampHeader1()}
