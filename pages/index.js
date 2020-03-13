@@ -7,19 +7,28 @@ import {
     AmpIncludeAmpCarousel,
 } from '../components/amp/AmpCustomElement'
 import Home from "./home"
-import article from "./offline"
+import article from "./article-template"
 import { useRouter } from 'next/router'
 import Head from "next/head";
 import {NextSeo} from "next-seo";
 import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
-export const config = { amp: false }
 
 export default class extends React.Component {
+    static async getInitialProps({ req, query }) {
+        const amp = query.amp
+        const url = req ? req.url : window.location.href
+        const ampUrl = url
+        return { amp, ampUrl }
+    }
     render() {
-        return (
-           <div>
-               <Home></Home>
-           </div>
-        )
+        const {amp}=this.props
+        switch(amp){
+            case "article":
+                return(<div><article/></div>)
+                break;
+            default:
+                return(<Home></Home>)
+                break;
+        }
     }
 }

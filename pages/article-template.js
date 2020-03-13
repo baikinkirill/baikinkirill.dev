@@ -116,7 +116,7 @@ export default class extends React.Component {
                               <div>
 
                                   <h1>
-                                      Путин согласился обнулить свои президентские сроки. Главное из его выступления перед депутатами (вдруг вы не смотрели)
+                                      {ampUrl}
                                   </h1>
                                   <h5>Creator • Published today</h5>
                                   <div className="text">
