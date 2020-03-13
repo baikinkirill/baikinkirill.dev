@@ -25,13 +25,10 @@ export default class extends React.Component {
         const {amp,ampUrl}=this.props
         switch(amp){
 
-            case "article":
-                config={amp:true}
-                return(<Article/>)
-                break;
+
             default:
                 config={amp:false}
-                return(<div><Home/></div>)
+                return(<Home/>)
                 break;
         }
     }
