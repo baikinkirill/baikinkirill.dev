@@ -19,7 +19,7 @@ import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
 export const config = { amp: true }
 const Post=({ampUrl,stars})=> (
           <>
-              <style amp-custom jsx>{`
+              <style amp-custom>{`
               @font-face {
 	            font-family: "Rubik Medium"; /* Гарнитура шрифта */
 	            src: url("/static/fonts/Rubik-Medium.ttf"); /* Путь к файлу со шрифтом */
