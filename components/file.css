@@ -45,12 +45,15 @@ body{
 	src: url("/static/fonts/Rubik-Light.ttf"); /* Путь к файлу со шрифтом */
 }
 div{
+	font-display: swap;
 	font-family: "Calibri", 'Comic Sans MS', bold;
 }
 .HomeTextPage {
 	display:table-cell;
 	vertical-align:middle;
 	text-align: center;
+	font-display: swap;
+	font-size: calc(1em + 2vw);
 	padding-left: 10px;
 	padding-right: 10px;
 	font-family: "Rubik Medium", 'Comic Sans MS', bold;
@@ -59,12 +62,13 @@ div{
 	display:table-cell;
 	vertical-align:middle;
 	text-align: center;
-
+	font-size: calc(1em + 2vw);
 	padding-right: 10px;
+	font-display: swap;
 	font-family: "Rubik Medium", 'Comic Sans MS', bold;
 }
 .HomeTextPage1 {
-
+	font-display: swap;
 	font-family: "Rubik Medium", 'Comic Sans MS', bold;
 }
 @font-face {
@@ -72,6 +76,7 @@ div{
 	src: url("/static/fonts/vag_world_bold.ttf"); /* Путь к файлу со шрифтом */
 }
 .FineBot {
+	font-display: swap;
 	font-family: FineBot, 'Comic Sans MS', bold;
 }
 .footer{
