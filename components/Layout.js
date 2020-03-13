@@ -35,7 +35,7 @@ const Layout = props => (
       layout="nodisplay"
     />
 
-    <style jsx global>{`
+    <style amp-custom jsx global>{`
       body{
 	margin: 0;
 }
