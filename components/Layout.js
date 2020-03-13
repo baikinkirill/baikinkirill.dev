@@ -39,6 +39,17 @@ const Layout = props => (
       body{
 	margin: 0;
 }
+.h1{
+               
+               	text-align: left;
+               	font-size: calc(1em + 1vw);
+               	margin-bottom:15px;
+            }
+ .textArticle{
+                text-align: left;
+                margin-top: 10px;
+                font-size: 18px;
+            }
 .hdblock{
 	max-width: 1190px; /* Ширина элемента в пикселах */
 	padding: 0px; /* Поля вокруг текста */
@@ -55,6 +66,11 @@ const Layout = props => (
 	margin-top: 5px;
 	margin-bottom: 2px;
 }
+.text{
+                text-align: left;
+                margin-top: 10px;
+                font-size: 19px;
+            }
 .HomeIMG{
 	object-fit:cover;
 	display:table;

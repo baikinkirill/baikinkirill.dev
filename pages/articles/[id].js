@@ -19,28 +19,7 @@ import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
 export const config = { amp: true }
 const Post=({ampUrl,stars})=> (
           <>
-              <style amp-custom>{`
-              @font-face {
-	            font-family: "Rubik Medium"; /* Гарнитура шрифта */
-	            src: url("/static/fonts/Rubik-Medium.ttf"); /* Путь к файлу со шрифтом */
-               }
-            @font-face {
-	            font-family: TextDiv; /* Гарнитура шрифта */
-	            src: url("/static/fonts/Rubik-Light.ttf"); /* Путь к файлу со шрифтом */
-               }
-            h1{
-               	font-family: "Rubik Medium", 'Comic Sans MS', bold;
-               	text-align: left;
-               	font-size: calc(1em + 1vw);
-               	margin-bottom:15px;
-            }
-            
-            .text{
-                text-align: left;
-                margin-top: 10px;
-                font-size: 19px;
-            }
-              `}</style>
+
 
               <Head>
 
@@ -85,7 +64,7 @@ const Post=({ampUrl,stars})=> (
 
                               <div>
 
-                                  <h1>
+                                  <h1 className="h1">
                                       {stars}
                                       {ampUrl}
                                   </h1>
