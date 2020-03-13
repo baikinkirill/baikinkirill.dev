@@ -15,21 +15,10 @@ import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
 export let config = { amp: false }
 
 export default class extends React.Component {
-    static async getInitialProps({ req, query }) {
-        const amp = query.amp
-        const url = req ? req.url : window.location.href
-        const ampUrl = url
-        return { amp, ampUrl }
-    }
     render() {
-        const {amp,ampUrl}=this.props
-        switch(amp){
 
-
-            default:
                 config={amp:false}
                 return(<Home/>)
-                break;
-        }
+
     }
 }
