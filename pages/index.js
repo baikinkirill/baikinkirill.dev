@@ -5,6 +5,8 @@ import Footer1 from "../components/Footer"
 import ampFooter1 from "../components/ampFooter"
 import ampHeader1 from "../components/ampHeader"
 import Layout from '../components/Layout'
+import ProgressButton from 'react-progress-button'
+import Ripples from 'react-ripples'
 import Fade from 'react-reveal/Fade';
 import AmpState from '../components/amp/AmpState'
 import { useAmp } from 'next/amp'
@@ -87,51 +89,13 @@ export default class extends React.Component {
     async test(){
         var t = 1
         var array = ["Hello World!","Hallo Welt!","Halló Veröld!","Ciao Mondo!","Witaj Świecie!","Hej Världen!","Sálem Álem!","Bonjour Le Monde!","Прывітанне Свет!","Привіт Світ!","こんにちは！","碌莽禄!:","안녕하세요 세계!","Сәлем Әлем!"
-            ,"Γεια Σου Ειρήνη!","Hallo Verden!","Dia Duit Ar Domhan!","🙋 🌍 ❗","00110001<br/>0100111001<br/>01010101010<br/>1010101100000<br/>010100010000000101<br/>1000010110110101010<br/>1010011010000111<br/>00001101100011010",]
+            ,"Γεια Σου Ειρήνη!","Hallo Verden!","Dia Duit Ar Domhan!","🙋 🌍 ❗","00110001<br/>0100111001<br/>01010101010<br/>1010101100000<br/>010100010000000101<br/>1000010110110101010<br/>1010011010000111<br/>00001101100011010","Привет Мир!"]
 
         var inte = setInterval(()=>{
             if(this.state.show){
                 this.setState({show:false})
                 if(t==array.length){
                     t=-1
-                    clearInterval(inte)
-
-                    var inter = setInterval(()=>{
-                        if(this.state.show) {
-                            this.setState({show:false})
-                            t=t+1
-                        }else{
-
-                            switch (t) {
-                                case 0:
-                                    this.setState({text:"Я вижу ты досмотрел до конца"})
-                                    break;
-                                case 1:
-                                    this.setState({text:"Значит у тебя много свободного времени"})
-                                    break;
-                                case 2:
-                                    this.setState({text:"Смотри фокус"})
-                                    break;
-                                case 3:
-                                    this.setState({text:"А"})
-                                    break;
-                                default:
-                                    this.setState({text:this.state.text+"А"})
-                                    clearInterval(inter)
-                                    setInterval(()=>{
-                                        this.setState({text:this.state.text+"А"})
-
-                                    },25)
-                                    break;
-
-
-                            }
-                            this.setState({show:true})
-                        }
-
-
-                    },1000)
-
 
                 }
                 this.setState({text:array[t]})
@@ -205,8 +169,13 @@ export default class extends React.Component {
                                             События в твоем городе
                                         </div>
                                         <div  style={{textAlign:"left",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
-                                            Сервис для ВКонтакте, который показывает интересные мероприятия во многих городах России
+                                            Сервис для ВКонтакте, который показывает интересные мероприятия во многих городах России.
+                                            <div>
+                                                <a href="https://vk.com/appevents" target="_blank" className="button1">Перейти</a>
+                                            </div>
                                         </div>
+
+
                                     </div>
 
                                 </div>
@@ -231,7 +200,11 @@ export default class extends React.Component {
                                             • Показывает самые популярные новости за последние 10 секунд<br/>
                                             • Вечерняя рассылка новостей<br/>
                                             • Анонимный чат<br/>
-                                            И многое другое!							</div>
+                                            И многое другое!
+                                            <div>
+                                                <a href="https://vk.com/finebot" target="_blank" className="button1">Перейти</a>
+                                            </div></div>
+
                                     </div>
 
                                 </div>
@@ -254,6 +227,9 @@ export default class extends React.Component {
                                             • Создание цитат<br/>
                                             • Переводчик<br/>
                                             • Возможность делиться файлами<br/>
+                                            <div>
+                                                <a href="/telegram" target="_blank" className="button1">Перейти</a>
+                                            </div>
                                         </div>
                                     </div>
 
