@@ -13,8 +13,8 @@ const Post=props=> (
 
         <Head>
 
-            <link rel="amphtml" href="f"/>
-            <link rel="canonical" href="f"/>
+            <link rel="amphtml" href={props.url}/>
+            <link rel="canonical" href={props.url}/>
 
 
             <title>{props.header}</title>
