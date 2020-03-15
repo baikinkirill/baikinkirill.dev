@@ -5,7 +5,6 @@ import Footer1 from "../components/Footer"
 import ampFooter1 from "../components/ampFooter"
 import ampHeader1 from "../components/ampHeader"
 import Layout from '../components/Layout'
-import ProgressButton from 'react-progress-button'
 import Ripples from 'react-ripples'
 import Fade from 'react-reveal/Fade';
 import AmpState from '../components/amp/AmpState'
@@ -171,7 +170,7 @@ export default class extends React.Component {
                                         <div  style={{textAlign:"left",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
                                             Сервис для ВКонтакте, который показывает интересные мероприятия во многих городах России.
                                             <div>
-                                                <a href="https://vk.com/appevents" target="_blank" className="button1">Перейти</a>
+                                                <a style={{marginTop:"15px"}} href="https://vk.com/appevents" target="_blank" className="button1">Перейти</a>
                                             </div>
                                         </div>
 
@@ -202,7 +201,7 @@ export default class extends React.Component {
                                             • Анонимный чат<br/>
                                             И многое другое!
                                             <div>
-                                                <a href="https://vk.com/finebot" target="_blank" className="button1">Перейти</a>
+                                                <a style={{marginTop:"15px"}} href="https://vk.com/finebot" target="_blank" className="button1">Перейти</a>
                                             </div></div>
 
                                     </div>
@@ -228,7 +227,7 @@ export default class extends React.Component {
                                             • Переводчик<br/>
                                             • Возможность делиться файлами<br/>
                                             <div>
-                                                <a href="/telegram" target="_blank" className="button1">Перейти</a>
+                                                <a style={{marginTop:"15px"}} href="/telegram" target="_blank" className="button1">Перейти</a>
                                             </div>
                                         </div>
                                     </div>
@@ -248,7 +247,10 @@ export default class extends React.Component {
                                             VKcoin Duels
                                         </div>
                                         <div  style={{textAlign:"left",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
-                                            Бот для заработка коинов ВК. Доступен через сервис VKcoin и по ссылке: <a target="_blank" href="https://vk.me/vkcoinduels">vk.me/vkcoinduels</a>
+                                            Бот для заработка коинов ВК. Доступен через сервис VKcoin.
+                                            <div>
+                                                <a style={{marginTop:"15px"}} href="https://vk.com/vkcoinduels" target="_blank" className="button1">Перейти</a>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -270,6 +272,9 @@ export default class extends React.Component {
                                             </div>
                                             <div  style={{textAlign:"center",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
                                                 Сервис для ВКонтакте, который показывает интересные мероприятия во многих городах России
+                                                <div>
+                                                    <a style={{marginTop:"15px"}} href="https://vk.com/appevents" target="_blank" className="button1">Перейти</a>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -295,7 +300,10 @@ export default class extends React.Component {
                                                 • Показывает самые популярные новости за последние 10 секунд<br/>
                                                 • Вечерняя рассылка новостей<br/>
                                                 • Анонимный чат<br/>
-                                                И многое другое!							</div>
+                                                И многое другое!
+                                                <div>
+                                                    <a style={{marginTop:"15px"}} href="https://vk.com/finebot" target="_blank" className="button1">Перейти</a>
+                                                </div></div>
                                         </div>
 
                                     </div>
@@ -318,6 +326,9 @@ export default class extends React.Component {
                                                 • Создание цитат<br/>
                                                 • Переводчик<br/>
                                                 • Возможность делиться файлами<br/>
+                                                <div>
+                                                    <a style={{marginTop:"15px"}} href="/telegram" target="_blank" className="button1">Перейти</a>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -336,7 +347,10 @@ export default class extends React.Component {
                                                 VKcoin Duels
                                             </div>
                                             <div  style={{textAlign:"center",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
-                                                Бот для заработка коинов ВК. Доступен через сервис VKcoin и по ссылке: <a target="_blank" href="https://vk.me/vkcoinduels">vk.me/vkcoinduels</a>
+                                                Бот для заработка коинов ВК. Доступен через сервис VKcoin.
+                                                <div>
+                                                    <a style={{marginTop:"15px"}} href="https://vk.com/vkcoinduels" target="_blank" className="button1">Перейти</a>
+                                                </div>
                                             </div>
                                         </div>
 
