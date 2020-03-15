@@ -169,7 +169,7 @@ export default class extends React.Component {
                                             События в твоем городе
                                         </div>
                                         <div  style={{textAlign:"left",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
-                                            Сервис для ВКонтакте, который показывает интересные мероприятия во многих городах России.
+                                            Сервис для ВКонтакте, показывающий интересные мероприятия во многих городах России.
                                             <div>
                                                 <a style={{marginTop:"15px"}} href="https://vk.com/appevents" target="_blank" className="button1">Перейти</a>
                                             </div>
@@ -294,7 +294,7 @@ export default class extends React.Component {
                                                 События в твоем городе
                                             </div>
                                             <div  style={{textAlign:"center",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
-                                                Сервис для ВКонтакте, который показывает интересные мероприятия во многих городах России
+                                                Сервис для ВКонтакте, показывающий интересные мероприятия во многих городах России
                                                 <div>
                                                     <a style={{marginTop:"15px"}} href="https://vk.com/appevents" target="_blank" className="button1">Перейти</a>
                                                 </div>
