@@ -226,7 +226,7 @@ export default class extends React.Component {
                                             • Переводчик<br/>
                                             • Возможность делиться файлами<br/>
                                             <div>
-                                                <a style={{marginTop:"15px"}} href="/telegram" target="_blank" className="button1">Перейти</a>
+                                                <a style={{marginTop:"15px"}} href="/telegram/index.html" target="_blank" className="button1">Перейти</a>
                                             </div>
                                         </div>
                                     </div>
@@ -326,7 +326,7 @@ export default class extends React.Component {
                                                 • Переводчик<br/>
                                                 • Возможность делиться файлами<br/>
                                                 <div>
-                                                    <a style={{marginTop:"15px"}} href="/telegram" target="_blank" className="button1">Перейти</a>
+                                                    <a style={{marginTop:"15px"}} href="/telegram/index.html" target="_blank" className="button1">Перейти</a>
                                                 </div>
                                             </div>
                                         </div>
