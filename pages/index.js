@@ -5,7 +5,6 @@ import Footer1 from "../components/Footer"
 import ampFooter1 from "../components/ampFooter"
 import ampHeader1 from "../components/ampHeader"
 import Layout from '../components/Layout'
-import Ripples from 'react-ripples'
 import Fade from 'react-reveal/Fade';
 import AmpState from '../components/amp/AmpState'
 import { useAmp } from 'next/amp'
