@@ -11,6 +11,7 @@ const THEME_COLOR = '#ffffffff'
  *
  * @param {Props} props
  */
+export const config={amp:true}
 const Layout = props => (
   <>
     <NextHead>
@@ -56,9 +57,33 @@ const Layout = props => (
     text-align: center;
     border-radius: 3px;
     background-color: #0A77B7;
+    border-radius: 15px;
     border: 3;
     cursor: pointer;
-    box-shadow: 0 15px 35px -5px rgba(0,0,0,.25);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,.25);
+    transition: transform .3s cubic-bezier(.25,.1,.25,1),box-shadow .3s cubic-bezier(.25,.1,.25,1);
+}
+.button2{
+    margin-top: 1.5rem;
+    font-family: Poppins,sans-serif;
+    font-weight: 700;
+    line-height: 1.2em;
+    font-size: 1em;
+    color: #fff;
+    display: inline-block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    padding: .20em 2em;
+    margin: 0;
+    text-decoration: none;
+    text-align: center;
+    border-radius: 3px;
+    background-color: green;
+    border: 3;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,.25);
     transition: transform .3s cubic-bezier(.25,.1,.25,1),box-shadow .3s cubic-bezier(.25,.1,.25,1);
 }
 .h1{

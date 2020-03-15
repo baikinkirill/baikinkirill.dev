@@ -20,6 +20,7 @@ import {
 } from '../components/amp/AmpCustomElement'
 import {useRouter} from "next/router";
 
+export const config={amp:false}
 
 export default class extends React.Component {
 
@@ -114,6 +115,7 @@ export default class extends React.Component {
         const FineBotVK = "/static/images/ic_launcher.png"
         const FineBotTG = "/static/images/unnamed1.png"
         const VKCDuiels = "/static/images/unna'lkmed.png"
+        const pushkinlogo = "/static/images/pushkinlogo.png"
 
         return (
 
@@ -256,6 +258,28 @@ export default class extends React.Component {
                                 </div>
                             </div>
                         </div>
+                        <div className="parent">
+                            <div className="hdblock1">
+
+                                <div style={{textAlign:"center",display:"inline-flex",marginTop:"50px"}}>
+                                    <div style={{textAlign:"center",marginRight:"20px"}}>
+                                        <img style={{width:"150px",height:"150px"}} src={pushkinlogo}></img>
+                                    </div>
+                                    <div>
+                                        <div className="HomeTextPage2" style={{textAlign:"left",top:"50px",fontSize:"calc(1em + 1.25vw)"}}>
+                                            Бот для группы «Фильм Спасти Пушкина»
+                                        </div>
+                                        <div  style={{textAlign:"left",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
+                                            Простой бот, который помогает в отправке комментариев от имени группы
+                                            <div>
+                                                <a style={{marginTop:"15px"}} href="https://vk.com/spastipushkina" target="_blank" className="button1">Перейти</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
                     </div>):(
                         <div style={{marginLeft:"10px",marginRight:"10px"}}>
                             <div className="parent">
@@ -356,7 +380,65 @@ export default class extends React.Component {
                                     </div>
                                 </div>
                             </div>
+                            <div className="parent">
+                                <div className="hdblock1">
+
+                                    <div style={{textAlign:"center",marginTop:"50px"}}>
+                                        <div style={{textAlign:"center",marginRight:"20px"}}>
+                                            <img style={{width:"150px",height:"150px"}} src={pushkinlogo}></img>
+                                        </div>
+                                        <div>
+                                            <div className="HomeTextPage1" style={{textAlign:"center",top:"50px",fontSize:"calc(1em + 1.25vw)"}}>
+                                                Бот для группы «Фильм Спасти Пушкина»
+                                            </div>
+                                            <div  style={{textAlign:"center",marginTop:"10px",fontSize:"calc(1em + 0.5vw)"}}>
+                                                Простой бот, который помогает в отправке комментариев от имени группы
+                                                <div>
+                                                    <a style={{marginTop:"15px"}} href="https://vk.com/spastipushkina" target="_blank" className="button1">Перейти</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>)}
+
+                    <div className="parent">
+                        <div className="hdblock1">
+                            <div style={{textAlign:"center",marginTop:"50px",paddingLeft:"15px",paddingRight:"15px"}}>
+
+                                <div >
+
+                                    <div id="donate" style={{textAlign:"center",marginTop:"10px",fontSize:"17px",}}>
+                                        Помогите нам стать больше и лучше
+
+                                    </div>
+                                    <div >
+                                        <a id="buttondon" style={{marginTop:"5px"}} onClick={()=>{
+                                            var t=document.getElementById("donate").innerHTML
+                                            document.getElementById("buttondon").style.display="none"
+                                            document.getElementById("donate").innerHTML="<h1>Спасибо ❤</h1>"
+
+                                            setTimeout(()=>{
+                                                window.open("https://qiwi.me/finebot")
+                                                document.getElementById("buttondon").style.display=""
+
+                                                document.getElementById("donate").innerHTML=t
+                                            },1500)
+
+                                        }} target="_blank" className="button2">Donate</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
                     <Footer1/>
 
                 </Layout>
