@@ -8,8 +8,6 @@ import Layout from '../components/Layout'
 import Fade from 'react-reveal/Fade';
 import AmpState from '../components/amp/AmpState'
 import { useAmp } from 'next/amp'
-import { NewsArticleJsonLd,LocalBusinessJsonLd } from 'next-seo';
-import {NextSeo} from "next-seo";
 
 import Head from 'next/head'
 
@@ -120,24 +118,33 @@ export default class extends React.Component {
         return (
 
             <>
-                <NextSeo
-                    openGraph={{
-                        type: 'website',
-                        url: 'https://cs2.finebot.site',
-                        title: 'FineBot',
-                        description: 'Это сайт файнбота',
-                        images: [
-                            {
-                                url: '/static/images/ic_launcher.png'
-                            }
 
-                        ],
-                    }}
-                />
                 <Layout>
                     <Head>
-                        <title>FineBot</title>
 
+
+
+
+                        <title>FineBot</title>
+                        <meta name="description" content="Это сайт файнбота"/>
+                        <meta property="og:title" content="FineBot"/>
+                        <meta property="og:description" content="Это сайт файнбота"/>
+                        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"/\",\"headline\":\"Просто сайт\",\"description\":\"This is finebot.site\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"FineBot\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"/static/images/ic_launcher.png\",\"width\":286,\"height\":60}},\"author\":{\"@type\":\"Organization\",\"name\":\"FineBot\"},\"image\":\"/static/images/ic_launcher.png\"}"}}></script>
+                        <meta property="og:site_name" content="FineBot"/>
+                        <meta property="og:image" content="/static/images/ic_launcher.png"/>
+                        <meta property="og:image:width" content="1200"/>
+                        <meta property="og:image:height" content="630"/>
+                        <meta name="twitter:image" content="/static/images/ic_launcher.png"/>
+                        <meta property="vk:image" content="/static/images/ic_launcher.png"/>
+                        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/ic_launcher.png"/>
+                        <link rel="icon" type="image/png" sizes="16x16" href="/static/images/ic_launcher.png"/>
+                        <link rel="apple-touch-icon" href="/static/images/ic_launcher.png"/>
+                        <link rel="apple-touch-icon" sizes="76x76" href="/static/images/ic_launcher.png"/>
+                        <link rel="apple-touch-icon" sizes="120x120" href="/static/images/ic_launcher.png"/>
+                        <link rel="apple-touch-icon" sizes="152x152" href="/static/images/ic_launcher.png"/>
+                        <link rel="apple-touch-icon" sizes="180x180" href="/static/images/ic_launcher.png"/>
+                        <link rel="mask-icon" href="/static/images/logo.png" color="B88B58"/>
+                        <link rel="image_src" href="/static/images/ic_launcher.png"/>
 
 
 
@@ -384,7 +391,7 @@ export default class extends React.Component {
                                 <div className="hdblock1">
 
                                     <div style={{textAlign:"center",marginTop:"50px"}}>
-                                        <div style={{textAlign:"center",marginRight:"20px"}}>
+                                        <div style={{textAlign:"center"}}>
                                             <img style={{width:"150px",height:"150px"}} src={pushkinlogo}></img>
                                         </div>
                                         <div>

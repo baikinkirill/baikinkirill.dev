@@ -14,6 +14,7 @@ const THEME_COLOR = '#ffffffff'
 export const config={amp:true}
 const Layout = props => (
   <>
+
     <NextHead>
         <meta charSet="utf-8"/>
       <title>{props.title || 'FineBot'}</title>
@@ -36,7 +37,7 @@ const Layout = props => (
       layout="nodisplay"
     />
 
-    <style amp-custom jsx global>{`
+      <style jsx global amp-custom>{`
       body{
 	margin: 0;
 }
