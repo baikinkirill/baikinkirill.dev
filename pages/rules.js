@@ -5,9 +5,9 @@ import Head from "next/head";
 
 
 export const config = { amp: true }
-const Post=({ampUrl,stars})=> (
+const Post=({ampUrl,stars,amp})=> (
     <>
-        <ArticleTemplate url={ampUrl} date="Опубликовано сегодня" creator="Admin" title="Правила использования FineBot" header="Правила использования | FineBot" text={`
+        <ArticleTemplate url={ampUrl} amp={amp} date="Опубликовано сегодня" creator="Admin" title="Правила использования FineBot" header="Правила использования | FineBot" text={`
 Администрация «FineBot» (далее — Администрация) —  это люди(человек), которые(ый) являются(ется) администраторами(ом) сообщества «FineBot», а так же, на кого зарегистрирован домен «finebot.site» и сервер, который арендован теми же людьми (или человеком), на кого зарегистрирован домен «finebot.site». Администрация предоставляет любым пользователям (далее — Пользователи) различные возможности взаимодействовать друг с другом через продукты, которые описаны на странице https://finebot.site/products (далее — Продукты).
 <br/><br/>
 Администрация не несет ответственности за контент распространяемый Пользователями. При выявлении нарушений Администрация имеет право забанить на бессрочный срок любого Пользователя, нарушающего данные правила. Администрация не может гарантировать, что запрещенная информация будет отсутствовать в Продуктах «FineBot». Администрация обязуется приложить все возможные усилия для выявления Пользователей, которые нарушают правила «FineBot».
@@ -44,11 +44,13 @@ function generateInlineScript(script) {
 }
 Post.getInitialProps = async ({ req,query }) => {
     const amp = query.amp
+
     const url = req ? req.url : window.location.href
     const id = url.replace("/"+url.split("/")[1]+"/","")
     const ampUrl = url
-    const res = await fetch('https://amp.dev/documentation/examples/api/time')
-    const data = await res.json();
-    return { ampUrl,stars: data.time,id }
+    //const res = await fetch('https://amp.dev/documentation/examples/api/time')
+  //  const data = await res.json();
+    //const time = data.time
+    return { ampUrl,id,amp }
 };
 export default Post
