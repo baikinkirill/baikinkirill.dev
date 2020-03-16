@@ -14,14 +14,14 @@ const Post=props=> (
         <Head>
 
             <link rel="amphtml" href={props.url}/>
-           
+
 
 
             <title>{props.header}</title>
             <meta name="description" content={props.description}/>
             <meta property="og:title" content={props.header}/>
             <meta property="og:description" content={props.description}/>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"/\",\"headline\":\"Отменены матчи Лиги чемпионов и Лиги Европы\",\"description\":\""+props.description+"\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"FineBot\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"/static/images/ic_launcher.png\",\"width\":286,\"height\":60}},\"author\":{\"@type\":\"Organization\",\"name\":\"FineBot\"},\"image\":\"/static/images/ic_launcher.png\"}"}}></script>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"/\",\"headline\":\"Отменены матчи Лиги чемпионов и Лиги Европы\",\"description\":\""+props.description+"\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"FineBot\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"/static/images/ic_launcher.png\",\"width\":286,\"height\":60}},\"datePublished\":\"2020-03-16T15:21:31Z\",\"dateModified\":\"2020-03-16T15:49:12Z\",\"author\":{\"@type\":\"Organization\",\"name\":\"FineBot\"},\"image\":\"/static/images/ic_launcher.png\"}"}}></script>
             <meta property="og:site_name" content="FineBot"/>
             <meta property="og:image" content="/static/images/ic_launcher.png"/>
             <meta property="og:image:width" content="1200"/>
