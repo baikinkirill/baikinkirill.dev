@@ -38,9 +38,131 @@ const Layout = props => (
     />
 
       <style jsx global amp-custom>{`
+      ::-webkit-scrollbar-button {
+background-repeat:no-repeat;
+width:0px;
+height:0px
+}
+
+::-webkit-scrollbar-track {
+background-color:transparent;
+}
+
+::-webkit-scrollbar-thumb {
+-webkit-border-radius: 5px;
+border-radius: 5px;
+background-color:#ccc;
+box-shadow:0px 1px 1px #fff inset;
+background-position:center;
+background-repeat:no-repeat;
+}
+
+::-webkit-resizer{
+background-image:url('');
+background-repeat:no-repeat;
+width:0px;
+height:0px
+}
+
+::-webkit-scrollbar{
+width: 8px;
+
+}
+      
+    
+    .wrapper {
+  background: -webkit-linear-gradient(right, #c56f82, #497ccb);
+  background: linear-gradient(270deg, #c56f82, #497ccb);
+  height: 100vh;
+  object-fit:cover;
+	display:table;
+	width:100vw;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* begin Scroll Down Button */
+button.scroll_down {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  height: 50px;
+  width: 30px;
+  bottom: 60px;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+button.scroll_down:before {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: scroll_down_btn-animation 2s infinite;
+  animation: scroll_down_btn-animation 2s infinite;
+  box-sizing: border-box;
+}
+
+@keyframes scroll_down_btn-animation {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes scroll_down_btn-animation {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: translate(0, 20px);
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+  
+      
+      
+      
+      
+      
+      
+      
+      
       body{
 	margin: 0;
 }
+
 .button1{
     margin-top: 1.5rem;
     font-family: Poppins,sans-serif;
@@ -117,7 +239,7 @@ const Layout = props => (
 .text{
                 text-align: left;
                 margin-top: 10px;
-                font-size: 19px;
+                font-size: 17px;
             }
 .HomeIMG{
 	object-fit:cover;

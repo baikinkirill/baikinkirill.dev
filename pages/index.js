@@ -104,6 +104,38 @@ export default class extends React.Component {
         },1000)
 
     }
+    getHead(title,description){
+        return(
+            <Head>
+                {title===""?(<title>FineBot</title>):(<title>{title} | FineBot</title>)}
+                <meta name="description" content={description}/>
+                {title===""?(<meta property="og:title" content="FineBot"/>):(<meta property="og:title" content={title+" | FineBot"}/>)}
+                <meta property="og:description" content={description}/>
+                <script type="application/ld+json" dangerouslySetInnerHTML={{__html:`
+                "@context": "https://schema.org",
+  "@type": "Project",
+  "name": "FineBot",
+  "alternateName": "FineBot",
+  "url": "https://cs2.finebot.site",
+  "logo": "https://cs2.finebot.site/static/images/ic_launcher.png"`}}></script>
+                <meta property="og:site_name" content="FineBot"/>
+                <meta property="og:image" content="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <meta property="og:image:width" content="1200"/>
+                <meta property="og:image:height" content="630"/>
+                <meta name="twitter:image" content="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <meta property="vk:image" content="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="icon" type="image/png" sizes="32x32" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="icon" type="image/png" sizes="16x16" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="apple-touch-icon" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="apple-touch-icon" sizes="76x76" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="apple-touch-icon" sizes="120x120" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="apple-touch-icon" sizes="152x152" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="apple-touch-icon" sizes="180x180" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+                <link rel="mask-icon" href="https://cs2.finebot.site/static/images/logo.png" color="#FFF"/>
+                <link rel="image_src" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+            </Head>
+        )
+    }
     render() {
 
         const {title} = this.props
@@ -120,45 +152,22 @@ export default class extends React.Component {
             <>
 
                 <Layout>
-                    <Head>
-
-
-
-
-                        <title>FineBot</title>
-                        <meta name="description" content="Это сайт файнбота"/>
-                        <meta property="og:title" content="FineBot"/>
-                        <meta property="og:description" content="Это сайт файнбота"/>
-                        <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"/\",\"headline\":\"Просто сайт\",\"description\":\"This is finebot.site\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"FineBot\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"/static/images/ic_launcher.png\",\"width\":286,\"height\":60}},\"author\":{\"@type\":\"Organization\",\"name\":\"FineBot\"},\"image\":\"/static/images/ic_launcher.png\"}"}}></script>
-                        <meta property="og:site_name" content="FineBot"/>
-                        <meta property="og:image" content="/static/images/ic_launcher.png"/>
-                        <meta property="og:image:width" content="1200"/>
-                        <meta property="og:image:height" content="630"/>
-                        <meta name="twitter:image" content="/static/images/ic_launcher.png"/>
-                        <meta property="vk:image" content="/static/images/ic_launcher.png"/>
-                        <link rel="icon" type="image/png" sizes="32x32" href="/static/images/ic_launcher.png"/>
-                        <link rel="icon" type="image/png" sizes="16x16" href="/static/images/ic_launcher.png"/>
-                        <link rel="apple-touch-icon" href="/static/images/ic_launcher.png"/>
-                        <link rel="apple-touch-icon" sizes="76x76" href="/static/images/ic_launcher.png"/>
-                        <link rel="apple-touch-icon" sizes="120x120" href="/static/images/ic_launcher.png"/>
-                        <link rel="apple-touch-icon" sizes="152x152" href="/static/images/ic_launcher.png"/>
-                        <link rel="apple-touch-icon" sizes="180x180" href="/static/images/ic_launcher.png"/>
-                        <link rel="mask-icon" href="/static/images/logo.png" color="B88B58"/>
-                        <link rel="image_src" href="/static/images/ic_launcher.png"/>
-
-
-
-                    </Head>
+                    {this.getHead("","Это сайт файнбота")}
                     <Header1/>
 
                     <div>
-                        <div className={this.state.HomeIMGStyle} style={{width:"100%",position:"relative",marginBottom:"50px"}}>
+
+
+
+                        <div className="wrapper" style={{paddingTop:"-50px"}}>
                             <Fade opposite when={this.state.show}>
                                 <div id="tt" className="HomeTextPage" style={{ position:"relative",textAlign:"center",color:"white"}} dangerouslySetInnerHTML={{__html:this.state.text}}></div>
                             </Fade>
+                            <button type="button" onClick={()=>{
+                                window.scrollTo(0,height)
+                            }} className="scroll_down" id="scroll_down"></button>
                         </div>
-                        <div className="HomeTextPage1" style={{textAlign:"center",top:"50px",color:"gray",fontSize:"calc(2em + 1vw)"}}>
-                            {title}
+                        <div className="HomeTextPage1" style={{textAlign:"center",marginTop:"50px",color:"gray",fontSize:"calc(2em + 1vw)"}}>
 
                             Че натворили
                         </div>
