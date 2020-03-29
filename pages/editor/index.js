@@ -4,7 +4,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import {stateToHTML} from 'draft-js-export-html';
 import Header1 from "../../components/Header"
-import Footer1 from "../../components/Footer"
+
 
 const Link = (props) => {
     const {url} = props.contentState.getEntity(props.entityKey).getData();
@@ -256,7 +256,7 @@ export default class RichEditorExample extends React.Component {
                     <div className="rnd" id="ffff"></div>
 
                 </div>
-                <Footer1></Footer1>
+               
 
             </div>
         );
