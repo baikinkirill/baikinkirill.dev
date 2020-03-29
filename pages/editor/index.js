@@ -1,4 +1,4 @@
-import {Editor, EditorState, RichUtils,convertToRaw,
+import {Editor, EditorState, RichUtils,convertFromRaw,convertToRaw,
     CompositeDecorator,} from "draft-js";
 import React from "react"
 import ReactDOM from "react-dom"
@@ -50,7 +50,13 @@ export default class RichEditorExample extends React.Component {
         this.state = {editorState: EditorState.createEmpty(decorator),width:0,height:0};
 
         this.focus = () => this.refs.editor.focus();
-        this.onChange = (editorState) => this.setState({editorState});
+        this.onChange = (editorState) => {
+            this.setState({editorState})
+            const contentState = this.state.editorState.getCurrentContent();
+            const rawContent = JSON.stringify(convertToRaw(contentState));
+            localStorage.setItem("unsaveeditor",rawContent)
+
+        };
 
         this.handleKeyCommand = (command) => this._handleKeyCommand(command);
         this.onTab = (e) => this._onTab(e);
@@ -60,7 +66,17 @@ export default class RichEditorExample extends React.Component {
     }
 
     componentDidMount() {
+        if(localStorage.getItem("unsaveeditor")!=null){
+            const rawContent = localStorage.getItem("unsaveeditor")
 
+            try{
+                const contentState = convertFromRaw(JSON.parse(rawContent));
+                const editorState = EditorState.createWithContent(contentState,decorator);
+                this.setState({editorState:editorState})
+            }catch (e) {
+                localStorage.setItem("unsaveeditor",null)
+            }
+        }
 
 
         let height = window.outerHeight
@@ -170,17 +186,21 @@ export default class RichEditorExample extends React.Component {
             rt="RichEditor-root1"
         }
 
-
-        const selection = editorState.getSelection();
-        const startKey = editorState.getSelection().getStartKey();
-        const contentState1 = editorState.getCurrentContent();
-        const startOffset = editorState.getSelection().getStartOffset();
-        const blockWithLinkAtBeginning = contentState1.getBlockForKey(startKey);
-        const linkKey = blockWithLinkAtBeginning.getEntityAt(startOffset);
         var linkStyle="RichEditor-styleButton"
-        if(linkKey){
-            linkStyle += ' RichEditor-activeButton';
-        }
+       try{
+           const selection = editorState.getSelection();
+           const startKey = editorState.getSelection().getStartKey();
+           const contentState1 = editorState.getCurrentContent();
+           const startOffset = editorState.getSelection().getStartOffset();
+           const blockWithLinkAtBeginning = contentState1.getBlockForKey(startKey);
+           const linkKey = blockWithLinkAtBeginning.getEntityAt(startOffset);
+
+           if(linkKey){
+               linkStyle += ' RichEditor-activeButton';
+           }
+       }catch (e) {
+
+       }
         const GetButtons = (props) => {
             var currentStyle = props.editorState.getCurrentInlineStyle();
 
@@ -256,7 +276,7 @@ export default class RichEditorExample extends React.Component {
                     <div className="rnd" id="ffff"></div>
 
                 </div>
-               
+
 
             </div>
         );
