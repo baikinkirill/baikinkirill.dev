@@ -164,10 +164,10 @@ export default class extends React.Component {
                                 <div id="tt" className="HomeTextPage" style={{ position:"relative",textAlign:"center",color:"white"}} dangerouslySetInnerHTML={{__html:this.state.text}}></div>
                             </Fade>
                             <button type="button" onClick={()=>{
-                                window.scrollTo(0,height)
+                                        window.scrollTo(0,document.getElementById("texts").offsetTop-30)
                             }} className="scroll_down" id="scroll_down"></button>
                         </div>
-                        <div className="HomeTextPage1" style={{textAlign:"center",marginTop:"50px",color:"gray",fontSize:"calc(2em + 1vw)"}}>
+                        <div id="texts" className="HomeTextPage1" style={{textAlign:"center",marginTop:"50px",color:"gray",fontSize:"calc(2em + 1vw)"}}>
 
                             Че натворили
                         </div>
