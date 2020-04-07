@@ -90,6 +90,7 @@ export default class RichEditorExample extends React.Component {
             let width=window.innerWidth
             this.setState({height:height,width:width})
             this.forceUpdate()
+
         });
         window.onscroll=(e)=>{
             if(window.scrollY>offsettools){
@@ -104,6 +105,12 @@ export default class RichEditorExample extends React.Component {
                 document.getElementById("hr").style.display="none"
             }
         }
+
+        setTimeout(()=>{
+            document.getElementById("textarea25").style.height="auto"
+            document.getElementById("textarea25").style.height=(Number((document.getElementById("textarea25").scrollHeight))+document.getElementById("textarea25").scrollTop)+"px"
+
+        })
     }
     _handleKeyCommand(command) {
         const {editorState} = this.state;
