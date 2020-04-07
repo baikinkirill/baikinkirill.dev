@@ -47,7 +47,7 @@ export default class RichEditorExample extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {editorState: EditorState.createEmpty(decorator),width:0,height:0};
+        this.state = {editorState: EditorState.createEmpty(decorator),width:0,height:0,title:""};
 
         this.focus = () => this.refs.editor.focus();
         this.onChange = (editorState) => {
@@ -66,13 +66,14 @@ export default class RichEditorExample extends React.Component {
     }
 
     componentDidMount() {
+        var offsettools=document.getElementById("tools").offsetTop
         if(localStorage.getItem("unsaveeditor")!=null){
             const rawContent = localStorage.getItem("unsaveeditor")
 
             try{
                 const contentState = convertFromRaw(JSON.parse(rawContent));
                 const editorState = EditorState.createWithContent(contentState,decorator);
-                this.setState({editorState:editorState})
+                this.setState({editorState:editorState,title:localStorage.getItem("unsavetitle")})
             }catch (e) {
                 localStorage.setItem("unsaveeditor",null)
             }
@@ -90,6 +91,19 @@ export default class RichEditorExample extends React.Component {
             this.setState({height:height,width:width})
             this.forceUpdate()
         });
+        window.onscroll=(e)=>{
+            if(window.scrollY>offsettools){
+                document.getElementById("rtools").style.height=document.getElementById("tools").offsetHeight+"px"
+                document.getElementById("tools").style.position="fixed"
+                document.getElementById("tools").style.backgroundColor="white"
+                document.getElementById("hr").style.display="block"
+            }else{
+                document.getElementById("tools").style.position="relative"
+                document.getElementById("rtools").style.height=0
+                document.getElementById("tools").style.backgroundColor="transparent"
+                document.getElementById("hr").style.display="none"
+            }
+        }
     }
     _handleKeyCommand(command) {
         const {editorState} = this.state;
@@ -232,51 +246,78 @@ export default class RichEditorExample extends React.Component {
             <div>
                 <Header1></Header1>
 
-                {width>950?(<div className="hdblock1">
-                    <textarea id="textarea25" onKeyDown={this.onLinkInputKeyDown} style={{marginLeft:"auto",marginRight:"auto",width:"900px",height:40,fontSize:35}} className="RichEditor-root" placeholder="Заголовок"></textarea>
-                </div>):(<div>
-                    <div style={{display:"flex"}}><textarea id="textarea25" onKeyDown={this.onLinkInputKeyDown} style={{flex:1,height:30,paddingLeft:5,paddingRight:5,height:40,fontSize:20}} className="RichEditor-root1" placeholder="Заголовок"></textarea></div>
-                </div>)}
-                <div className={rt}>
-                    <div style={{display:"inline-flex"}}>
 
-                        <BlockStyleControls
-                            editorState={editorState}
-                            onToggle={this.toggleBlockType}
-                        />
+                <div>
+                    <div>
+                        {width>950?(<div className="hdblock1">
+                    <textarea  id="textarea25" onKeyDown={this.onLinkInputKeyDown} value={this.state.title} onChange={(e)=>{
+                        var nw = e.target.value.replace("\n","")
+                        this.setState({title:nw})
+                        localStorage.setItem("unsavetitle",nw)
+                        document.getElementById("textarea25").style.height="auto"
+
+                        document.getElementById("textarea25").style.height=(Number((document.getElementById("textarea25").scrollHeight))+document.getElementById("textarea25").scrollTop)+"px"
+                    }} style={{marginLeft:"auto",marginRight:"auto",height:50,width:900,fontSize:32,padding:5,resize:"none",boxSizing:"border-box"}} className="RichEditor-root" placeholder="Заголовок"></textarea>
+                        </div>):(<div>
+                            <div style={{display:"flex"}}><textarea id="textarea25" value={this.state.title} onChange={(e)=>{
+                                var nw = e.target.value.replace("\n","")
+                                this.setState({title:nw})
+                                localStorage.setItem("unsavetitle",nw)
+                                document.getElementById("textarea25").style.height="auto"
+
+                                document.getElementById("textarea25").style.height=(Number((document.getElementById("textarea25").scrollHeight))+document.getElementById("textarea25").scrollTop)+"px"
+                            }} onKeyDown={this.onLinkInputKeyDown} style={{flex:1,height:30,paddingLeft:5,paddingRight:5,height:40,fontSize:24,padding:5,resize:"none",boxSizing:"border-box"}} className="RichEditor-root1" placeholder="Заголовок"></textarea></div>
+                        </div>)}
+                        <div className={rt}>
+                            <div>
+                                <div id="rtools">
+
+                                </div>
+                                <div id="tools" style={{top:0,width:"100%",maxWidth:"898px"}}>
 
 
-                        <GetButtons
-                            editorState={editorState}
-                            onToggle={this._confirmLink.bind(this)}
-                        />
+                                        <BlockStyleControls
+                                            editorState={editorState}
+                                            onToggle={this.toggleBlockType}
+                                        />
 
 
+
+
+
+
+                                    <GetButtons
+                                        editorState={editorState}
+                                        onToggle={this._confirmLink.bind(this)}
+                                    />
+                                    <InlineStyleControls
+                                        editorState={editorState}
+                                        onToggle={this.toggleInlineStyle}
+                                    />
+                                    <hr id="hr" style={{position:"fixed",maxWidth:"898px",display:"none",marginTop:"-1px"}} align="center" width="100%" size="1" color="#ddd " />
+                                </div>
+                            </div>
+
+                            <div style={styles.editor} className={className} onClick={this.focus}>
+                                <Editor
+                                    blockStyleFn={getBlockStyle}
+                                    customStyleMap={styleMap}
+                                    editorState={this.state.editorState}
+                                    handleKeyCommand={this.handleKeyCommand}
+                                    onChange={this.onChange}
+                                    onTab={this.onTab}
+                                    placeholder="Tell a story..."
+                                    ref="editor"
+                                    spellCheck={true}
+
+                                />
+                            </div>
+                            <button onClick={this.rend.bind(this)}>rend</button>
+                            <div className="rnd" id="ffff"></div>
+
+                        </div>
                     </div>
-                    <InlineStyleControls
-                        editorState={editorState}
-                        onToggle={this.toggleInlineStyle}
-                    />
-
-                    <div style={styles.editor} className={className} onClick={this.focus}>
-                        <Editor
-                            blockStyleFn={getBlockStyle}
-                            customStyleMap={styleMap}
-                            editorState={this.state.editorState}
-                            handleKeyCommand={this.handleKeyCommand}
-                            onChange={this.onChange}
-                            onTab={this.onTab}
-                            placeholder="Tell a story..."
-                            ref="editor"
-                            spellCheck={true}
-
-                        />
-                    </div>
-                    <button onClick={this.rend.bind(this)}>rend</button>
-                    <div className="rnd" id="ffff"></div>
-
                 </div>
-
 
             </div>
         );
