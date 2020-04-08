@@ -82,6 +82,15 @@ export default class RichEditorExample extends React.Component {
 
         let height = window.outerHeight
         let width=window.innerWidth
+
+        if(width<=950){
+            document.getElementById("ssda").style.marginRight="10px"
+            document.getElementById("ssda").style.marginLeft="10px"
+        }else{
+            document.getElementById("ssda").style.marginRight="auto"
+            document.getElementById("ssda").style.marginLeft="auto"
+        }
+
         this.setState({height:height,width:width})
         window.addEventListener(`resize`, (event) => {
 
@@ -97,20 +106,30 @@ export default class RichEditorExample extends React.Component {
                 document.getElementById("rtools").style.height=document.getElementById("tools").offsetHeight+"px"
                 document.getElementById("tools").style.position="fixed"
                 document.getElementById("tools").style.backgroundColor="white"
-                document.getElementById("hr").style.display="block"
+                if(width<=950){
+                    document.getElementById("ssda").className=""
+                    document.getElementById("hr").style.display="none"
+                }else{
+                    document.getElementById("hr").style.display="block"
+                    document.getElementById("ssda").className="RichEditor-root"
+                }
             }else{
                 document.getElementById("tools").style.position="relative"
                 document.getElementById("rtools").style.height=0
                 document.getElementById("tools").style.backgroundColor="transparent"
                 document.getElementById("hr").style.display="none"
+                document.getElementById("ssda").className="RichEditor-root"
             }
         }
 
         setTimeout(()=>{
             document.getElementById("textarea25").style.height="auto"
             document.getElementById("textarea25").style.height=(Number((document.getElementById("textarea25").scrollHeight))+document.getElementById("textarea25").scrollTop)+"px"
-
+            offsettools=document.getElementById("tools").offsetTop
         })
+        window.onresize=()=>{
+            this.componentDidMount()
+        }
     }
     _handleKeyCommand(command) {
         const {editorState} = this.state;
@@ -207,6 +226,8 @@ export default class RichEditorExample extends React.Component {
             rt="RichEditor-root1"
         }
 
+
+
         var linkStyle="RichEditor-styleButton"
        try{
            const selection = editorState.getSelection();
@@ -275,12 +296,12 @@ export default class RichEditorExample extends React.Component {
                                 document.getElementById("textarea25").style.height=(Number((document.getElementById("textarea25").scrollHeight))+document.getElementById("textarea25").scrollTop)+"px"
                             }} onKeyDown={this.onLinkInputKeyDown} style={{flex:1,height:30,paddingLeft:5,paddingRight:5,height:40,fontSize:24,padding:5,resize:"none",boxSizing:"border-box"}} className="RichEditor-root1" placeholder="Заголовок"></textarea></div>
                         </div>)}
-                        <div className={rt}>
-                            <div>
+
+                            <div id="ssda" className={rt} >
                                 <div id="rtools">
 
                                 </div>
-                                <div id="tools" style={{top:0,width:"100%",maxWidth:"898px"}}>
+                                <div  id="tools" style={{top:0,width:"100%",maxWidth:"898px"}}>
 
 
                                         <BlockStyleControls
@@ -304,7 +325,7 @@ export default class RichEditorExample extends React.Component {
                                     <hr id="hr" style={{position:"fixed",maxWidth:"898px",display:"none",marginTop:"-1px"}} align="center" width="100%" size="1" color="#ddd " />
                                 </div>
                             </div>
-
+                        <div className={rt}>
                             <div style={styles.editor} className={className} onClick={this.focus}>
                                 <Editor
                                     blockStyleFn={getBlockStyle}
@@ -382,7 +403,6 @@ const BLOCK_TYPES = [
     {label: 'Blockquote', style: 'blockquote'},
     {label: 'UL', style: 'unordered-list-item'},
     {label: 'OL', style: 'ordered-list-item'},
-    {label: 'Code Block', style: 'code-block'},
 ];
 
 const BlockStyleControls = (props) => {
