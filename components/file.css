@@ -47,6 +47,13 @@ body{
 	margin: 16px 0;
 	padding: 10px 20px;
 }
+.rnd code{
+	background-color: rgba(0, 0, 0, 0.05);
+	font-family: "Inconsolata", "Menlo", "Consolas", monospace;
+	font-size: "16px";
+	padding: "2px";
+}
+
 
 
 
@@ -63,7 +70,7 @@ body{
 	padding: 15px;
 
 	max-width: 900px; /* Ширина элемента в пикселах */
-	min-width: 900px;
+
 	padding: 0px; /* Поля вокруг текста */
 	margin-left: auto; /* Выравниваем по центру */
 	margin-right: auto;
@@ -84,13 +91,13 @@ body{
 	margin-left: 10px; /* Выравниваем по центру */
 	margin-right: 10px;
 	margin-top: 5px;
-	margin-bottom: 2px;
+	margin-bottom: 10px;
 
 	border-radius:10px;
 }
 
 .RichEditor-editor {
-	border-top: 1px solid #ddd;
+
 	cursor: text;
 	padding-left:5px;
 
@@ -98,7 +105,7 @@ body{
 	margin-right: auto;
 	padding-right:5px;
 	font-size: 16px;
-	margin-top: 10px;
+	margin-top: 0px;
 }
 
 .RichEditor-editor .public-DraftEditorPlaceholder-root,
