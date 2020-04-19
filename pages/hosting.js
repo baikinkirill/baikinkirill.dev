@@ -17,7 +17,7 @@ export default class Persik extends React.Component {
 
     }
     componentDidMount() {
-        window.location("https://www.reg.ru/?rlink=reflink-44247")
+        window.location="https://www.reg.ru/?rlink=reflink-44247"
     }
 
 
