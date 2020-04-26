@@ -14,6 +14,7 @@ export default class Persik extends React.Component {
             show:false,
             showabout:false,
             showbutton:true,
+            showcontacts:false,
         }
     }
     componentDidMount() {
@@ -96,17 +97,62 @@ export default class Persik extends React.Component {
                                             }}
                                             onMouseUp={()=>{
                                                 document.getElementById("projects").style.color="white"
-                                            }}>💼Проекты</div>
+                                            }}
+                                       onClick={()=>{
+                                           this.props.hidePromo()
+                                           setTimeout(()=>{
+                                                    window.location.hash=""
+                                                   window.scrollTo(0,document.getElementById("texts").offsetTop-30)
+
+                                           },10)
+                                       }}>💼Проекты</div><br/>
+                                       <div id="contacts" className="noselect" style={{color:"white",fontSize:"40px",marginTop:"5px",display:"inline-flex"}}
+                                            onMouseLeave={()=>{
+                                                document.getElementById("projects").style.textDecoration="none"
+                                                document.getElementById("projects").style.color="white"
+                                            }}  onMouseEnter={()=>{
+                                           document.getElementById("contacts").style.textDecoration="underline"
+                                       }}
+                                            onMouseDown={()=>{
+                                                document.getElementById("contacts").style.color="blue"
+                                            }}
+                                            onMouseUp={()=>{
+                                                document.getElementById("contacts").style.color="white"
+                                            }}
+                                       onClick={()=>{
+
+                                           setTimeout(()=>{
+
+                                               this.setState({showcontacts:!this.state.showcontacts})
+                                               document.getElementById("contactstext").style.display="block"
+
+                                           },10)
+                                       }}>🤙🏻Контакты</div>
                                    </Fade>
                                </div>
                                <Fade right when={this.state.showabout}>
-                                   <div id="aboutme" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"absolute",left:"20vw",right:"20vw",top:"15vh",backgroundColor:"black",zIndex:4,display:"none"}}><code>Меня зовут Кирилл и я люблю прогать.<br/><br/>
+                                   <div id="aboutme" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"30vh",display:"none",backgroundColor:"black",right:"20vw",left:"20vw"}}><code>Меня зовут Кирилл и я люблю прогать.<br/><br/>
 
                                        В принципе здесь можно было бы написать что-то более качественное, но всем своим работодателям я отправляю хорошее резюме, а все, кто знаком со мной, знают про мои проекты :)<br/><br/>Если Вы хотите
-                                       сотрудничать, то моя почта всегда доступна 😉 <u>bk@finebot.site</u><br/><br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
-                                           document.getElementById("aboutme").style.display="none"
+                                       сотрудничать, то моя почта всегда доступна 😉 <a href="mailto:bk@finebot.site" target="_blank" style={{color:"orange"}}>bk@finebot.site</a><br/><br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
+                                           setTimeout(()=>{
+                                               document.getElementById("aboutme").style.display="none"
+                                           },350)
 
                                            this.setState({showabout:!this.state.showabout})
+                                       }}>{"X"}</div></code></div>
+                               </Fade>
+                               <Fade right when={this.state.showcontacts}>
+                                   <div id="contactstext" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"42vh",display:"none",backgroundColor:"black",right:"20vw",left:"20vw"}}><code>
+                                       • VK: <a href="https://vk.com/finebot" target="_blank" style={{color:"orange"}}>vk.com/finebot</a><br/>
+                                       • Telegram: <a href="https://t.me/baikinkirill" target="_blank" style={{color:"orange"}}>@baikinkirill</a><br/>
+                                       • Email: <a href="mailto:bk@finebot.site" target="_blank" style={{color:"orange"}}>bk@finebot.site</a><br/>
+                                       <br/><br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
+                                           setTimeout(()=>{
+                                               document.getElementById("contactstext").style.display="none"
+                                           },350)
+
+                                           this.setState({showcontacts:!this.state.showcontacts})
                                        }}>{"X"}</div></code></div>
                                </Fade>
 
