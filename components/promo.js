@@ -108,8 +108,8 @@ export default class Persik extends React.Component {
                                        }}>💼Проекты</div><br/>
                                        <div id="contacts" className="noselect" style={{color:"white",fontSize:"40px",marginTop:"5px",display:"inline-flex"}}
                                             onMouseLeave={()=>{
-                                                document.getElementById("projects").style.textDecoration="none"
-                                                document.getElementById("projects").style.color="white"
+                                                document.getElementById("contacts").style.textDecoration="none"
+                                                document.getElementById("contacts").style.color="white"
                                             }}  onMouseEnter={()=>{
                                            document.getElementById("contacts").style.textDecoration="underline"
                                        }}
