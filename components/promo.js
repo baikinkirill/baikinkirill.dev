@@ -82,6 +82,11 @@ export default class Persik extends React.Component {
                                             }}
                                             onClick={()=>{
                                                 document.getElementById("aboutme").style.display="block"
+                                                if(this.state.showabout){
+                                                    setTimeout(()=>{
+                                                        document.getElementById("aboutme").style.display="none"
+                                                    },350)
+                                                }
                                                 this.setState({showabout:!this.state.showabout})
                                             }}>🙋‍♂Обо мне</div>
                                        <br/>
@@ -123,7 +128,13 @@ export default class Persik extends React.Component {
 
                                            setTimeout(()=>{
 
+                                               if(this.state.showcontacts){
+                                                   setTimeout(()=>{
+                                                       document.getElementById("contactstext").style.display="none"
+                                                   },350)
+                                               }
                                                this.setState({showcontacts:!this.state.showcontacts})
+
                                                document.getElementById("contactstext").style.display="block"
 
                                            },10)
