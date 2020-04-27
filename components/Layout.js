@@ -168,13 +168,13 @@ button.scroll_down:before {
     font-family: Poppins,sans-serif;
     font-weight: 700;
     line-height: 1.2em;
-    font-size: 15px;
+    font-size: 17px;
     color: #fff;
     display: inline-block;
     max-width: 100%;
     width: auto;
     height: auto;
-    padding: .25em 1em;
+    padding: .45em 2em;
     margin: 0;
     text-decoration: none;
     text-align: center;
@@ -197,7 +197,7 @@ button.scroll_down:before {
     max-width: 100%;
     width: auto;
     height: auto;
-    padding: .20em 2em;
+    padding: .45em 2em;
     margin: 0;
     text-decoration: none;
     text-align: center;
