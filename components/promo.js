@@ -15,6 +15,8 @@ export default class Persik extends React.Component {
             showabout:false,
             showbutton:true,
             showcontacts:false,
+            showwhatisit:false,
+            showproject:false,
         }
     }
     componentDidMount() {
@@ -67,7 +69,30 @@ export default class Persik extends React.Component {
                            <div style={{display:"block"}}>
                                <div style={{marginLeft:"15px",marginRight:"15px"}}>
                                    <Fade top when={this.state.showbutton}>
-                                       <div id="about" className="noselect" style={{color:"white",fontSize:"40px",marginTop:"40vh",display:"inline-flex",zIndex:3}} onMouseLeave={()=>{
+                                       <div id="whatisit" className="noselect" style={{color:"white",fontSize:"40px",marginTop:"30vh",display:"inline-flex",zIndex:3,marginBottom:"0px"}} onMouseLeave={()=>{
+                                           document.getElementById("whatisit").style.textDecoration="none"
+                                           document.getElementById("whatisit").style.color="white"
+
+                                       }}  onMouseEnter={()=>{
+                                           document.getElementById("whatisit").style.textDecoration="underline"
+                                       }}
+                                            onMouseDown={()=>{
+                                                document.getElementById("whatisit").style.color="blue"
+                                            }}
+                                            onMouseUp={()=>{
+                                                document.getElementById("whatisit").style.color="white"
+                                            }}
+                                            onClick={()=>{
+                                                document.getElementById("whatis").style.display="block"
+                                                if(this.state.showabout){
+                                                    setTimeout(()=>{
+                                                        document.getElementById("whatis").style.display="none"
+                                                    },350)
+                                                }
+                                                this.setState({showwhatisit:!this.state.showwhatisit})
+                                            }}>👀Что это?</div>
+                                       <br/>
+                                       <div id="about" className="noselect" style={{color:"white",fontSize:"40px",display:"inline-flex",zIndex:3}} onMouseLeave={()=>{
                                            document.getElementById("about").style.textDecoration="none"
                                            document.getElementById("about").style.color="white"
 
@@ -90,6 +115,7 @@ export default class Persik extends React.Component {
                                                 this.setState({showabout:!this.state.showabout})
                                             }}>🙋‍♂Обо мне</div>
                                        <br/>
+
                                        <div id="projects" className="noselect" style={{color:"white",fontSize:"40px",marginTop:"5px",display:"inline-flex"}}
                                             onMouseLeave={()=>{
                                                 document.getElementById("projects").style.textDecoration="none"
@@ -103,14 +129,21 @@ export default class Persik extends React.Component {
                                             onMouseUp={()=>{
                                                 document.getElementById("projects").style.color="white"
                                             }}
-                                       onClick={()=>{
-                                           this.props.hidePromo()
-                                           setTimeout(()=>{
-                                                    window.location.hash=""
-                                                   window.scrollTo(0,document.getElementById("texts").offsetTop-30)
+                                            onClick={()=>{
 
-                                           },10)
-                                       }}>💼Проекты</div><br/>
+                                                setTimeout(()=>{
+
+                                                    if(this.state.showcontacts){
+                                                        setTimeout(()=>{
+                                                            document.getElementById("proj").style.display="none"
+                                                        },350)
+                                                    }
+                                                    this.setState({showproject:!this.state.showproject})
+
+                                                    document.getElementById("proj").style.display="block"
+
+                                                },10)
+                                            }}>💼Проекты</div><br/>
                                        <div id="contacts" className="noselect" style={{color:"white",fontSize:"40px",marginTop:"5px",display:"inline-flex"}}
                                             onMouseLeave={()=>{
                                                 document.getElementById("contacts").style.textDecoration="none"
@@ -141,8 +174,8 @@ export default class Persik extends React.Component {
                                        }}>🤙🏻Контакты</div>
                                    </Fade>
                                </div>
-                               <Fade right when={this.state.showabout}>
-                                   <div id="aboutme" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"30vh",display:"none",backgroundColor:"black",right:"20vw",left:"20vw"}}><code>Меня зовут Кирилл и я люблю прогать.<br/><br/>
+                               <Fade  right when={this.state.showabout}>
+                                   <div class="Tenb" id="aboutme" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"30vh",display:"none",backgroundColor:"black",right:"20vw",left:"20vw"}}><code>Меня зовут Кирилл и я люблю прогать.<br/><br/>
 
                                        В принципе здесь можно было бы написать что-то более качественное, но всем своим работодателям я отправляю хорошее резюме, а все, кто знаком со мной, знают про мои проекты :)<br/><br/>Если Вы хотите
                                        сотрудничать, то моя почта всегда доступна 😉 <a href="mailto:bk@finebot.site" target="_blank" style={{color:"orange"}}>bk@finebot.site</a><br/><br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
@@ -153,18 +186,73 @@ export default class Persik extends React.Component {
                                            this.setState({showabout:!this.state.showabout})
                                        }}>{"X"}</div></code></div>
                                </Fade>
-                               <Fade right when={this.state.showcontacts}>
-                                   <div id="contactstext" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"42vh",display:"none",backgroundColor:"black",right:"20vw",left:"20vw"}}><code>
+                               <Fade  right when={this.state.showcontacts}>
+                                   <div class="Tenb" id="contactstext" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"42vh",display:"none",backgroundColor:"black",right:"20vw",left:"20vw"}}><code>
                                        • VK: <a href="https://vk.com/finebot" target="_blank" style={{color:"orange"}}>vk.com/finebot</a><br/>
                                        • Telegram: <a href="https://t.me/baikinkirill" target="_blank" style={{color:"orange"}}>@baikinkirill</a><br/>
                                        • Email: <a href="mailto:bk@finebot.site" target="_blank" style={{color:"orange"}}>bk@finebot.site</a><br/>
-                                       <br/><br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
+                                       <br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
                                            setTimeout(()=>{
                                                document.getElementById("contactstext").style.display="none"
                                            },350)
 
                                            this.setState({showcontacts:!this.state.showcontacts})
                                        }}>{"X"}</div></code></div>
+                               </Fade>
+                               <Fade  right when={this.state.showwhatisit}>
+                                   <div class="Tenb" id="whatis" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"30vh",display:"none",backgroundColor:"black",right:"30vw",left:"30vw"}}><code>
+                                            Это обратная сторона сайта. Она предназначена для тех, кому интересна деятельность FineBot.<br/>Обычным пользователям достаточно того, что написано на главной странице.
+                                       <br/><br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
+                                       setTimeout(()=>{
+                                           document.getElementById("whatis").style.display="none"
+                                       },350)
+
+                                       this.setState({showwhatisit:!this.state.showwhatisit})
+                                   }}>{"X"}</div></code></div>
+                               </Fade>
+                               <Fade  right when={this.state.showproject}>
+                                   <div class="Tenb" id="proj" style={{color:"white",fontSize:"14px",border:"1px double gray",padding:"7px",position:"fixed",top:"15vh",display:"none",backgroundColor:"black",right:"10vw",left:"10vw",overflow:"auto",maxHeight:"70vh"}}><code>
+                                       Да-да, открылась именно эта карточка, хотя могло и перекинуть на главную страницу. Просто там указаны только активные проекты. Здесь же собрана вся история.<br/><br/>
+                                       <div style={{fontSize:"16px"}}>
+                                           • Бот для группы «Фильм Спасти Пушкина» [Чат-бот] [VK] [<text style={{color:"#11ff00"}}>Работает</text>]
+                                           <div style={{fontSize:"14px"}}>Простой бот, который помогает в отправке комментариев от имени группы</div>
+                                       </div><br/>
+                                       <div style={{fontSize:"16px"}}>
+                                           • VKcoin Duels [Чат-бот] [VK] [<text style={{color:"#11ff00"}}>Работает</text>]
+                                           <div style={{fontSize:"14px"}}>Бот для заработка коинов ВК. Доступен через сервис VKcoin</div>
+                                       </div><br/>
+                                       <div style={{fontSize:"16px"}}>
+                                           • События в твоем городе [Приложение] [VK] [<text style={{color:"#11ff00"}}>Работает</text>]
+                                           <div style={{fontSize:"14px"}}>Сервис для ВКонтакте, показывающий интересные мероприятия во многих городах России</div>
+                                       </div><br/>
+                                       <div style={{fontSize:"16px"}}>
+                                           • FineBot [Чат-бот] [Telegram] [<text style={{color:"#00abff"}}>В стадии переписывания</text>]
+                                           <div style={{fontSize:"14px"}}></div>
+                                       </div><br/>
+                                       <div style={{fontSize:"16px"}}>
+                                           • FineBot [Чат-бот] [VK] [<text style={{color:"#ffc300"}}>На грани закрытия</text>]
+                                           <div style={{fontSize:"14px"}}>Помогает в администрировании беседы, имеет множество функций</div>
+                                       </div><br/>
+
+                                       <div style={{fontSize:"16px"}}>
+                                           • REG RU [Приложение] [Android] [<text style={{color:"#ff0000"}}>Закрыт</text>]
+                                           <div style={{fontSize:"14px"}}>Приложение для REG.RU</div>
+                                       </div><br/>
+                                       <div style={{fontSize:"16px"}}>
+                                           • ⭐ OG Security [Приложение] [Android/Windows] [<text style={{color:"#ff0000"}}>Закрыт</text>]
+                                           <div style={{fontSize:"14px"}}>Самый первый проект, который располагался на бесплатном хостинге. Предполагался безопасный, зашифрованный обмен сообщениями</div>
+                                       </div><br/>
+                                       <div style={{fontSize:"16px"}}>
+                                           • VKcoin Duels [Приложение] [Android] [<text style={{color:"#ff0000"}}>Закрыт</text>]
+                                           <div style={{fontSize:"14px"}}>То же самое что и бот, только в виде приложения</div>
+                                       </div>
+                                      <br/><div style={{fontSize:"23px",cursor:"pointer",display:"inline-block",color:"red",}} onClick={()=>{
+                                       setTimeout(()=>{
+                                           document.getElementById("proj").style.display="none"
+                                       },350)
+
+                                       this.setState({showproject:!this.state.showproject})
+                                   }}>{"X"}</div></code></div>
                                </Fade>
 
                            </div>
