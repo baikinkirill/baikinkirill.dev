@@ -7,7 +7,6 @@ import Head from "next/head";
 export const config = { amp: true }
 const Post=({ampUrl,stars,amp})=> (
     <>
-	
         <ArticleTemplate url={ampUrl} amp={amp} date="Опубликовано сегодня" creator="Admin" title="Команды бота в беседах VK" header="Команды бота в беседах VK | FineBot" text={`
 <h3>Команды администраторов:</h3>
 • !antispam — включение/отключение защиты от спама (от одинаковых сообщений)

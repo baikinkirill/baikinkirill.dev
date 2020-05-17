@@ -21,22 +21,22 @@ const Post=props=> (
             <meta name="description" content={props.description}/>
             <meta property="og:title" content={props.header}/>
             <meta property="og:description" content={props.description}/>
-            <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"/\",\"headline\":\""+props.description+"\",\"description\":\""+props.description+"\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"FineBot\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://cs2.finebot.site/static/images/ic_launcher.png\",\"width\":286,\"height\":60}},\"datePublished\":\"2020-03-16T15:21:31Z\",\"dateModified\":\"2020-03-16T15:49:12Z\",\"author\":{\"@type\":\"Organization\",\"name\":\"FineBot\"},\"image\":\"https://cs2.finebot.site/static/images/ic_launcher.png\"}"}}></script>
+            <script type="application/ld+json" dangerouslySetInnerHTML={{__html:"{\"@context\":\"http://schema.org\",\"@type\":\"NewsArticle\",\"mainEntityOfPage\":\"/\",\"headline\":\""+props.description+"\",\"description\":\""+props.description+"\",\"publisher\":{\"@type\":\"Organization\",\"name\":\"FineBot\",\"logo\":{\"@type\":\"ImageObject\",\"url\":\"https://finebot.site/static/images/ic_launcher.png\",\"width\":286,\"height\":60}},\"datePublished\":\"2020-03-16T15:21:31Z\",\"dateModified\":\"2020-03-16T15:49:12Z\",\"author\":{\"@type\":\"Organization\",\"name\":\"FineBot\"},\"image\":\"https://finebot.site/static/images/ic_launcher.png\"}"}}></script>
             <meta property="og:site_name" content="FineBot"/>
-            <meta property="og:image" content="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+            <meta property="og:image" content="https://finebot.site/static/images/ic_launcher.png"/>
             <meta property="og:image:width" content="1200"/>
             <meta property="og:image:height" content="630"/>
-            <meta name="twitter:image" content="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <meta property="vk:image" content="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="icon" type="image/png" sizes="32x32" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="icon" type="image/png" sizes="16x16" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="apple-touch-icon" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="apple-touch-icon" sizes="76x76" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="apple-touch-icon" sizes="120x120" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="apple-touch-icon" sizes="152x152" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="apple-touch-icon" sizes="180x180" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
-            <link rel="mask-icon" href="https://cs2.finebot.site/static/images/logo.png" color="B88B58"/>
-            <link rel="image_src" href="https://cs2.finebot.site/static/images/ic_launcher.png"/>
+            <meta name="twitter:image" content="https://finebot.site/static/images/ic_launcher.png"/>
+            <meta property="vk:image" content="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="icon" type="image/png" sizes="32x32" href="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="icon" type="image/png" sizes="16x16" href="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="apple-touch-icon" href="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="apple-touch-icon" sizes="76x76" href="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="apple-touch-icon" sizes="120x120" href="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="apple-touch-icon" sizes="152x152" href="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="apple-touch-icon" sizes="180x180" href="https://finebot.site/static/images/ic_launcher.png"/>
+            <link rel="mask-icon" href="https://finebot.site/static/images/logo.png" color="B88B58"/>
+            <link rel="image_src" href="https://finebot.site/static/images/ic_launcher.png"/>
 
 
 
