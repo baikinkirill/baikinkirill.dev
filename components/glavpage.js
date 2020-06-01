@@ -17,6 +17,7 @@ import {
     AmpIncludeAmpCarousel,
 } from '../components/amp/AmpCustomElement'
 import {useRouter} from "next/router";
+import {Html} from "next/document";
 
 export const config={amp:false}
 
@@ -133,6 +134,20 @@ export default class extends React.Component {
                 <link rel="apple-touch-icon" sizes="180x180" href="https://finebot.site/static/images/ic_launcher.png"/>
                 <link rel="mask-icon" href="https://finebot.site/static/images/logo.png" color="#FFF"/>
                 <link rel="image_src" href="https://finebot.site/static/images/ic_launcher.png"/>
+                <div dangerouslySetInnerHTML={{__html:'<!-- Yandex.Metrika counter -->\n' +
+                        '<script type="text/javascript" >\n' +
+                        '   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};\n' +
+                        '   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})\n' +
+                        '   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");\n' +
+                        '\n' +
+                        '   ym(64433395, "init", {\n' +
+                        '        clickmap:true,\n' +
+                        '        trackLinks:true,\n' +
+                        '        accurateTrackBounce:true\n' +
+                        '   });\n' +
+                        '</script>\n' +
+                        '<noscript><div><img src="https://mc.yandex.ru/watch/64433395" style="position:absolute; left:-9999px;" alt="" /></div></noscript>\n' +
+                        '<!-- /Yandex.Metrika counter -->'}}></div>
             </Head>
         )
     }
