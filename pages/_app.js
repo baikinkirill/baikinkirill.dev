@@ -1,4 +1,4 @@
-
+import 'react-vertical-timeline-component/style.min.css';
 import "../components/file.css"
 //import "../components/editor.css"
 

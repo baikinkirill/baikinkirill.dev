@@ -26,7 +26,7 @@ class Persikf extends React.Component {
 		return (
 			<>
 
-					<div className="parent">
+					<div style={{backgroundColor:"#fff"}} className="parent">
 						<div className="hdblock" >
 
 							<div style={{display:"inline-flex"}}>
