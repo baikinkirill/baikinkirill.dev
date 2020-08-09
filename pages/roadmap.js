@@ -80,7 +80,6 @@ export default class Persik extends React.Component {
                 <Header1 ></Header1>
                 <div >
                     <div id="texts" className="HomeTextPage1" style={{textAlign:"center",marginTop:"50px",color:"gray",fontSize:"calc(2em + 1vw)"}}>
-
                         Roadmap project
                     </div>
                     <VerticalTimeline>
