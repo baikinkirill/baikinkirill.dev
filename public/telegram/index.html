@@ -2,12 +2,12 @@
 <!-- saved from url=(0021)https://vk.me/finebot -->
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link rel="shortcut icon" href="https://finebot.site/stories/images/logo.png">
+<link rel="shortcut icon" href="https://finebot.site/static/images/ic_launcher.png">
 
-<link rel="apple-touch-icon" href="https://finebot.site/stories/images/logo.png">
-<link rel="apple-touch-icon" sizes="76x76" href="https://finebot.site/stories/images/logo.png">
-<link rel="apple-touch-icon" sizes="120x120" href="https://finebot.site/stories/images/logo.png">
-<link rel="apple-touch-icon" sizes="152x152" href="https://finebot.site/stories/images/logo.png">
+<link rel="apple-touch-icon" href="https://finebot.site/static/images/ic_launcher.png">
+<link rel="apple-touch-icon" sizes="76x76" href="https://finebot.site/static/images/ic_launcher.png">
+<link rel="apple-touch-icon" sizes="120x120" href="https://finebot.site/static/images/ic_launcher.png">
+<link rel="apple-touch-icon" sizes="152x152" href="https://finebot.site/static/images/ic_launcher.png">
 
 
 
@@ -63,9 +63,9 @@ var abp;
 </div>
   </div>
   <div class="vkme_owner_button">
-  <a href="https://t.me/finebot_bot">
-    <button class="flat_button button_big">Перейти к боту</button>
-  </a>
+  
+    <button onclick="on()" class="flat_button button_big">Перейти к боту</button>
+  
 </div><div class="vkme_owner_button">
   <a href="https://finebot.site">
     <button class="flat_button button_big secondary">Вернуться на сайт</button>
@@ -82,8 +82,15 @@ var abp;
 </div>
 <script type="text/javascript">window.noAdsAtAll = true;</script>
 <script type="text/javascript">
+
+	function on(){
+	setTimeout(function() {
+    vkmeRedirect('tg://resolve?domain=finebot0', -157496062);
+  }, 10);
+	}
+
   setTimeout(function() {
-    vkmeRedirect('tg://resolve?domain=finebot_bot', -157496062);
+    vkmeRedirect('tg://resolve?domain=finebot0', -157496062);
   }, 10);
 </script></div>
       </div>
