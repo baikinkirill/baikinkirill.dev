@@ -438,28 +438,7 @@ export default class extends React.Component {
                         </div>)}
 
 
-                        <div className="gradient" style={{display:"block",marginLeft:"auto",marginRight:"auto",textAlign:"center",paddingBottom:"50px",marginTop:"40px"}}>
-                            <div style={{display:"inline-flex",flexWrap:"wrap"}}>
-                                <div style={{display:"inline-block",width:"300px",marginLeft:"auto",marginRight:"auto"}}>
-                                    <div id="texts" className="HomeTextPage1" style={{marginTop:"50px",color:"gray",fontSize:"30px",marginLeft:"auto",marginRight:"auto",textAlign:"center"}}>
-                                        Мы ВКонтакте
-                                    </div>
-                                    <div>
-                                        <a style={{marginTop:"15px",marginLeft:"auto",marginRight:"auto",display:"block",width:"100px"}} href="https://vk.com/finebot" target="_blank" className="button1">Перейти</a>
-                                    </div>
-                                </div>
-                                <div style={{display:"inline-block",width:"300px",marginLeft:"auto",marginRight:"auto",textAlign:"center"}}>
-                                    <div id="texts" className="HomeTextPage1" style={{marginTop:"50px",color:"gray",fontSize:"30px",marginLeft:"auto",marginRight:"auto",textAlign:"center"}}>
-                                        Наш RoadMap
-                                    </div>
-                                    <div>
-                                        <a style={{marginTop:"15px",marginLeft:"auto",marginRight:"auto",display:"block",width:"100px"}} href="/roadmap" className="button1">Перейти</a>
-                                    </div>
-                                </div>
 
-
-                            </div>
-                        </div>
                     <div className="parent">
                         <div className="hdblock1">
                             <div style={{textAlign:"center",marginTop:"50px",paddingLeft:"15px",paddingRight:"15px"}}>
@@ -489,8 +468,16 @@ export default class extends React.Component {
 
                             </div>
 
-
-
+                            <div style={{display:"block",marginLeft:"auto",marginRight:"auto",textAlign:"center",height: "50px",marginBottom:"-10px",paddingTop:"20px"}}>
+                                <div style={{display:"inline-flex",flexWrap:"wrap"}}>
+                                    <div style={{display:"inline-block",width:"50px",marginLeft:"auto",marginRight:"auto"}}>
+                                        <a target={"_blank"} href={"https://vk.com/finebot"}><img className={"img"} src={"/static/images/VK_Blue_Logo_transparent.png"} style={{width:"40px",color:"gray"}}/></a>
+                                    </div>
+                                    <div style={{display:"inline-block",width:"50px",marginLeft:"auto",marginRight:"auto"}}>
+                                        <a target={"_blank"} href={"/telegram"}><img className={"img"} src={"/static/images/1024px-Telegram_logo.svg.webp"} style={{width:"40px",color:"gray"}}/></a>
+                                    </div>
+                                </div>
+                            </div>
 
 
                         </div>

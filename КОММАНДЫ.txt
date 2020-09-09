@@ -1,0 +1,3 @@
+npm run export
+npm run build
+npm run dev
