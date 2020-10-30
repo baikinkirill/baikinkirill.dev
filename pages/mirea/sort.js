@@ -7,13 +7,13 @@ import ArticleTemplate from "../../components/article-template"
 
 export const config = { amp: true }
 const Post=({ampUrl,stars})=> (
-          <>
+    <>
 
 
-              <ArticleTemplate imageurl={"./static/images/server-room-blue-uhd-4k-wallpaper.jpg"} date="30.10.2020 19:46" creator="Admin" title="Разгадан смысл песни «Uno», которую Little Big записали для «Евровидения». Подсказка: загибайте пальцы — uno, dos, cuatro" header="Разгадан смысл песни «Uno», которую Little Big записали для «Евровидения». Подсказка: загибайте пальцы — uno, dos, cuatro | FineBot" text={`
+        <ArticleTemplate imageurl={"./static/images/server-room-blue-uhd-4k-wallpaper.jpg"} date="30.10.2020 19:46" creator="Admin" title="Разгадан смысл песни «Uno», которую Little Big записали для «Евровидения». Подсказка: загибайте пальцы — uno, dos, cuatro" header="Разгадан смысл песни «Uno», которую Little Big записали для «Евровидения». Подсказка: загибайте пальцы — uno, dos, cuatro | FineBot" text={`
 Может мы тормозим, но. Кажется, разгадан смысл странного подсчета в песне «Uno», с которой группа Little Big собирается ехать на «Евровидение». Там цифры идут не подряд, а так: uno (один), dos (два), cuatro (четыре). Смысл становится понятен, когда начинаешь загибать пальцы.
         `} description="Может мы тормозим, но. Кажется, разгадан смысл странного подсчета в песне «Uno», с которой группа Little Big собирается ехать на «Евровидение». Там цифры идут не подряд, а так: uno (один), dos (два), cuatro (четыре). Смысл становится понятен, когда начинаешь загибать пальцы."/>
-          </>
+    </>
 
 
 )

@@ -48,11 +48,14 @@ const Post=props=> (
 
 
             <div className="parent">
+                <img src={props.imageurl} style={{backgroundColor:"gray",width:"100vw",height:"80vh"}}>
+                </img>
                 <div className="hdblock">
 
-                    <div amp-custom style={{textAlign:"left",display:"block",marginTop:"20px",marginRight:"10px",marginLeft:"10px"}}>
+                    <div amp-custom style={{textAlign:"left",display:"block",marginTop:"20px",marginRight:"10px",marginLeft:"10px",position:"absolute",top:"20vw",backgroundColor:"white",height:"100%",maxWidth:"1190px",
+                    borderRadius:"15px",width:"100%"}}>
 
-                        <div style={{maxWidth:"800px",margin:"auto",display:"block"}}>
+                        <div style={{maxWidth:"1000px",margin:"auto",display:"block"}}>
 
                             <h1 className="h1">
                                 {props.title}
@@ -68,7 +71,6 @@ const Post=props=> (
                 </div>
             </div>
 
-            {ampFooter1()}
 
         </Layout>
     </>
