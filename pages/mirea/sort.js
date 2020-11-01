@@ -21,7 +21,7 @@ function generateData1() {
         y: Math.random()*15
     }));
 }
-
+var inte=null
 
 export default class Persik extends React.Component {
 
@@ -47,12 +47,23 @@ export default class Persik extends React.Component {
     }
 
     async sort(){
+        document.getElementById("sortbt").disabled=true
+        document.getElementById("addbt").disabled=true
+        document.getElementById("btsl").disabled=true
         var arr=this.state.array
         var n = arr.length
         var s=n
-     var inte= setInterval(()=>{
+        if(inte==null){
+
+        }else{
+            return
+        }
+     inte= setInterval(()=>{
 
           if(s>1){
+              document.getElementById("sortbt").disabled=true
+              document.getElementById("addbt").disabled=true
+              document.getElementById("btsl").disabled=true
               var n = arr.length
               s=Math.floor(s/1.247)
               if(s<1){
@@ -68,7 +79,12 @@ export default class Persik extends React.Component {
               var k=generateData(arr)
               this.setState({array:k})
           }else{
+              document.getElementById("sortbt").disabled=false
+              document.getElementById("addbt").disabled=false
+              document.getElementById("btsl").disabled=false
+              clearInterval(inte)
               inte=null
+              return
           }
       },450)
 
@@ -120,7 +136,7 @@ export default class Persik extends React.Component {
                         <h2>Визуализация алгоритма</h2>
 
                         <br/>
-                        <input id={"fdf"} placeholder={"Вводите здесь элементы в массив"} type={"number"} style={{width:"230px"}}></input> <button onClick={
+                        <input id={"fdf"} placeholder={"Вводите здесь элементы в массив"} type={"number"} style={{width:"230px"}}></input> <button id={"addbt"} onClick={
                         ()=>{
                             var t = document.getElementById("fdf").value
                             var arr =this.state.array
@@ -130,14 +146,22 @@ export default class Persik extends React.Component {
                             this.setState({array:arr})
                             document.getElementById("fdf").value=""
                         }
-                    }>Добавить</button> (принимаются только числа) <br/><button onClick={()=>{
+                    }>Добавить</button> (принимаются только числа) <br/><button id={"btsl"} onClick={()=>{
                         setTimeout(()=>{
                             this.setState({array:generateData1()})
                         })
                     }}>Случайно заполнить</button><br/><br/>
-                    <button onClick={()=>{
+                    <button id={"sortbt"} onClick={()=>{
+
                         setTimeout(()=>{
+
+
                             this.sort()
+
+
+
+
+
                         })
                     }}>Сортировать</button>
                         <br/><br/>
