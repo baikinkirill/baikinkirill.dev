@@ -1,15 +1,6 @@
 import React from 'react';
 
-import Layout from './Layout'
-import AmpState from './amp/AmpState'
-import { useAmp } from 'next/amp'
-import Head from 'next/head'
 
-import AmpScript from './amp/AmpScript'
-import {
-	AmpIncludeAmpList,
-	AmpIncludeAmpCarousel,
-} from './amp/AmpCustomElement'
 
 class Persikf extends React.Component {
 

@@ -48,12 +48,12 @@ const Post=props=> (
 
 
             <div className="parent">
-                <img src={props.imageurl} style={{backgroundColor:"gray",width:"100vw",height:"80vh"}}>
+                <img src={props.imageurl} style={{backgroundColor:"gray",width:"100%",height:"80vh"}}>
                 </img>
                 <div className="hdblock">
 
-                    <div amp-custom style={{textAlign:"left",display:"block",marginTop:"20px",marginRight:"10px",marginLeft:"10px",position:"absolute",top:"20vw",backgroundColor:"white",height:"100%",maxWidth:"1190px",
-                    borderRadius:"15px",width:"100%"}}>
+                    <div amp-custom style={{textAlign:"left",display:"block",marginTop:"20px",paddingRight:"10px",paddingLeft:"10px",position:"absolute",top:"20vw",backgroundColor:"white",height:"100%",maxWidth:"1190px",
+                    borderRadius:"15px",width:"95vw"}}>
 
                         <div style={{maxWidth:"1000px",margin:"auto",display:"block"}}>
 
@@ -61,8 +61,8 @@ const Post=props=> (
                                 {props.title}
                             </h1>
                             <h5>{props.creator} • {props.date}</h5>
-                            <div className="text" dangerouslySetInnerHTML={{__html:props.text}}>
-
+                            <div className="text" >
+                                {props.children}
                             </div>
 
                         </div>

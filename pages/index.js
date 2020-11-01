@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
-import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom'
+
 import Glavpage from "../components/glavpage"
 import Promo from "../components/promo"
 import Fade from "react-reveal"

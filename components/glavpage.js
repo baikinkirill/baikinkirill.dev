@@ -2,22 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import Header1 from "../components/Header"
 import Footer1 from "../components/Footer"
-import ampFooter1 from "../components/ampFooter"
-import ampHeader1 from "../components/ampHeader"
+
 import Layout from '../components/Layout'
 import Fade from 'react-reveal/Fade';
-import AmpState from '../components/amp/AmpState'
-import { useAmp } from 'next/amp'
-import Promo from "./promo"
+
 import Head from 'next/head'
 
-import AmpScript from '../components/amp/AmpScript'
-import {
-    AmpIncludeAmpList,
-    AmpIncludeAmpCarousel,
-} from '../components/amp/AmpCustomElement'
-import {useRouter} from "next/router";
-import {Html} from "next/document";
 
 export const config={amp:false}
 
