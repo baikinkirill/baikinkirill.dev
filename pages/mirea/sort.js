@@ -8,7 +8,6 @@ import { XYPlot,
     LabelSeries,VerticalBarSeries,VerticalGridLines,XAxis,YAxis,MarkSeries} from 'react-vis';
 import ArticleTemplate from '../../components/article-template'
 function generateData(arr) {
-    console.log(arr)
     return [...new Array(arr.length)].map((row,i) => ({
         x: i,
         y: arr[i]['y']
@@ -22,7 +21,10 @@ function generateData1() {
     }));
 }
 var inte=null
-
+var s=0
+var i=0
+var type=0
+var js=false
 export default class Persik extends React.Component {
 
     constructor(props){
@@ -33,6 +35,7 @@ export default class Persik extends React.Component {
             array:[],
             colors:[],
             width:0,
+
 
         }
 
@@ -45,8 +48,61 @@ export default class Persik extends React.Component {
         }
         this.setState({width:k})
     }
+    sort1(){
+        js=true
+        console.log("s")
+        var arr=this.state.array
+        var pp=250
+        if(arr.length>20){
+            pp=50
+        }
+        if(s>1){
+            document.getElementById("sortbtfast").disabled=true
 
-    async sort(){
+            document.getElementById("sortbt").disabled=true
+            document.getElementById("addbt").disabled=true
+            document.getElementById("btsl").disabled=true
+            var n = arr.length
+            s=Math.floor(s/1.247)
+            if(s<1){
+                s=1
+            }
+            i=0
+            var inte1=setInterval(()=>{
+                if(i+s>=n){
+                    console.log(s)
+                    js=false
+                    clearInterval(inte1)
+                    inte1=null
+                }else if(Number(arr[i]['y'])>Number(arr[i+s]['y'])){
+
+                    var tmp=arr[i]
+                    arr[i]=arr[i+s]
+                    arr[i+s]=tmp
+                    var k=generateData(arr)
+                    this.setState({array:k})
+                }else{
+                    var k=generateData(arr)
+                    this.setState({array:k})
+                }
+                i=i+1
+            },pp)
+
+
+        }else{
+            document.getElementById("sortbtfast").disabled=false
+            document.getElementById("sortbt").disabled=false
+            document.getElementById("addbt").disabled=false
+            document.getElementById("btsl").disabled=false
+            clearInterval(inte)
+            inte=null
+            return
+        }
+    }
+    async sortFast(){
+        type=1
+        document.getElementById("sortbtfast").disabled=true
+
         document.getElementById("sortbt").disabled=true
         document.getElementById("addbt").disabled=true
         document.getElementById("btsl").disabled=true
@@ -58,35 +114,66 @@ export default class Persik extends React.Component {
         }else{
             return
         }
-     inte= setInterval(()=>{
+        inte= setInterval(()=>{
 
-          if(s>1){
-              document.getElementById("sortbt").disabled=true
-              document.getElementById("addbt").disabled=true
-              document.getElementById("btsl").disabled=true
-              var n = arr.length
-              s=Math.floor(s/1.247)
-              if(s<1){
-                  s=1
-              }
-              for(var i=0;i+s<n;i++){
-                  if(Number(arr[i]['y'])>Number(arr[i+s]['y'])){
-                      var tmp=arr[i]
-                      arr[i]=arr[i+s]
-                      arr[i+s]=tmp
-                  }
-              }
-              var k=generateData(arr)
-              this.setState({array:k})
-          }else{
-              document.getElementById("sortbt").disabled=false
-              document.getElementById("addbt").disabled=false
-              document.getElementById("btsl").disabled=false
-              clearInterval(inte)
-              inte=null
-              return
-          }
-      },450)
+            if(s>1){
+
+                var n = arr.length
+                s=Math.floor(s/1.247)
+                if(s<1){
+                    s=1
+                }
+                for(i=0;i+s<n;i++){
+                    if(Number(arr[i]['y'])>Number(arr[i+s]['y'])){
+                        var tmp=arr[i]
+                        arr[i]=arr[i+s]
+                        arr[i+s]=tmp
+                    }
+                }
+                var k=generateData(arr)
+                this.setState({array:k})
+            }else{
+                document.getElementById("sortbtfast").disabled=false
+                document.getElementById("sortbt").disabled=false
+                document.getElementById("addbt").disabled=false
+                document.getElementById("btsl").disabled=false
+                clearInterval(inte)
+                inte=null
+                return
+            }
+        },450)
+
+
+
+    }
+    async sort(){
+        type=2
+        document.getElementById("sortbtfast").disabled=true
+        document.getElementById("sortbt").disabled=true
+        document.getElementById("addbt").disabled=true
+        document.getElementById("btsl").disabled=true
+        var arr=this.state.array
+        var n = arr.length
+        s=n
+        if(inte==null){
+
+        }else{
+            return
+        }
+     inte= setInterval(()=>{
+            if(s>1 && !js){
+                setTimeout(()=>this.sort1())
+            }else{
+                if(s<=1 && !js){
+                    document.getElementById("sortbtfast").disabled=false
+                    document.getElementById("sortbt").disabled=false
+                    document.getElementById("addbt").disabled=false
+                    document.getElementById("btsl").disabled=false
+                    clearInterval(inte)
+                    inte = null
+                }
+            }
+      },100)
 
 
 
@@ -152,18 +239,15 @@ export default class Persik extends React.Component {
                         })
                     }}>Случайно заполнить</button><br/><br/>
                     <button id={"sortbt"} onClick={()=>{
-
                         setTimeout(()=>{
-
-
                             this.sort()
-
-
-
-
-
                         })
                     }}>Сортировать</button>
+                        <button id={"sortbtfast"} onClick={()=>{
+                            setTimeout(()=>{
+                                this.sortFast()
+                            })
+                        }}>Сортировать побыстрее</button>
                         <br/><br/>
                         {
                            /* this.state.array.map((i,n)=>{
@@ -189,8 +273,12 @@ export default class Persik extends React.Component {
 
                         </div>
                         <h4>Массив</h4>
-                        [{this.state.array.map((a)=>{
-                            return (a['y'].toString()+"; ")
+                        [{this.state.array.map((a,ie)=>{
+                            if((ie==i || ie==i+s)&&type==2&&s>0){
+                                return (<a style={{backgroundColor:"yellow"}}>{a['y'].toString()+"; "}</a>)
+                            }else{
+                                return (a['y'].toString()+"; ")
+                            }
                         })}]
 
                         <h2>Код на C++</h2>
