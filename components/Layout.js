@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import NextHead from 'next/head'
-import { AmpIncludeAmpInstallServiceworker } from './amp/AmpCustomElement'
+
 import React from "react";
 
 // Your app's theme color
@@ -30,12 +30,8 @@ const Layout = props => (
 
     {props.children}
 
-    <AmpIncludeAmpInstallServiceworker />
-    <amp-install-serviceworker
-      src="/serviceworker.js"
-      data-iframe-src="/install-serviceworker.html"
-      layout="nodisplay"
-    />
+
+    
 
       <style jsx global amp-custom>{`
       ::-webkit-scrollbar-button {

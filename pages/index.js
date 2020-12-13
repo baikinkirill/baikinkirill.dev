@@ -21,6 +21,7 @@ export default class Persik extends React.Component {
 
     }
     componentDidMount() {
+
         window.onhashchange=(e)=>{
             var ne=e.newURL.split("#")[1]
             if(ne=="promo"){

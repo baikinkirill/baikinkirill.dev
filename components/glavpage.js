@@ -9,7 +9,7 @@ import Fade from 'react-reveal/Fade';
 import Head from 'next/head'
 
 
-export const config={amp:false}
+
 
 export default class extends React.Component {
 
@@ -176,7 +176,7 @@ export default class extends React.Component {
                         </div>
                         <div id="texts" className="HomeTextPage1" style={{textAlign:"center",marginTop:"50px",color:"gray",fontSize:"calc(2em + 1vw)"}}>
 
-                            Че натворили
+                            Че натворил
                         </div>
                     </div>
                     {width>=800?(<div style={{marginLeft:"10px",marginRight:"10px"}}>
