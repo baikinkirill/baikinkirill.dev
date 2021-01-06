@@ -1,5 +1,5 @@
 import React from 'react'
-import ArticleTemplate from "../components/article-template"
+import ArticleTemplate from "../components/article-template1"
 import fetch from 'isomorphic-unfetch'
 import Head from "next/head";
 
