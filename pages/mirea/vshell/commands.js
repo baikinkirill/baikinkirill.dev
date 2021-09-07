@@ -1,6 +1,20 @@
 export default function commands(message,dataClass){
-    let command = message.match(/([^\s]*)/gm)
-    console.log(command)
+
+    const regex = /([^\s]*)/gm;
+    const str = message;
+    let m;
+    let command=[]
+
+    while ((m = regex.exec(str)) !== null) {
+        if (m.index === regex.lastIndex) {
+            regex.lastIndex++;
+        }
+
+        m.forEach((match, groupIndex) => {
+            command.push(match)
+        });
+    }
+
     if(command[0]==="")
         return [0,0]
     switch (command[0]){
