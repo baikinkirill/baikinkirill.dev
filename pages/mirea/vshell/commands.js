@@ -11,7 +11,9 @@ export default function commands(message,dataClass){
         }
 
         m.forEach((match, groupIndex) => {
-            command.push(match)
+            if(match!==""){
+                command.push(match)
+            }
         });
     }
 
