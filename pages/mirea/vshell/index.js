@@ -1,14 +1,125 @@
 import Header from "../../../components/Header";
 import {useEffect, useState} from "react";
 import commands from "./commands";
+import JSZip from 'jszip'
+import $ from 'jquery'
+import {Head} from "next/document";
+let setstp=null
+
+function handleFile() {
+    $("#file").on("change", function (evt) {
+        function handleFile(f) {
+            JSZip.loadAsync(f)
+                .then(function (zip) {
+                    zip.forEach(function (relativePath, zipEntry) {
+                        console.log(zipEntry.name)
+                        setTimeout(()=>{setstp(3)},1500)
+                    });
+                }, function (e) {
+                });
+        }
+        var files = evt.target.files;
+        for (var i = 0; i < files.length; i++) {
+            handleFile(files[i]);
+        }
+    });
+}
+
 export default function Index() {
+    const [startPage,setStartPage] = useState(1)
+    setstp=setStartPage
+
+    // setTimeout(()=>setStartPage(2),1000)
+    if(startPage==1){
+        return(<div><GetArchive setStartPage={setStartPage}/></div>)
+    }else if(startPage==2){
+        return(<div><Loader/></div>)
+
+    }
+
     return (
         <div>
             <Header/>
+
             <Terminal/>
         </div>
     )
 }
+
+
+function GetArchive(props){
+    const [height,setHeight] = useState(0)
+
+    useEffect(() => {
+        setHeight(window.innerHeight)
+        handleFile()
+    }, [])
+    return(
+        <div>
+            <Header/>
+                <div style={{width:"100vw",display:"flex",justifyContent:"center",height:height-200,alignItems:"center",flexDirection:"column"}}>
+                <h1 style={{textAlign:"center",padding:"10px"}}>Для начала работы загрузите образ системы</h1>
+                    <div className="example-2">
+                        <div className="form-group">
+                            <input onChange={()=>props.setStartPage(2)} type="file" name="file" id="file" className="input-file"/>
+                                <label htmlFor="file" className="btn btn-tertiary js-labelFile">
+                                    <span className="js-fileName">Загрузить файл</span>
+                                </label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    )
+}
+
+function Loader(){
+    const [height,setHeight] = useState(0)
+
+    useEffect(() => {
+        setHeight(window.innerHeight)
+        handleFile()
+    }, [])
+    return(
+        <div>
+            <Header/>
+            <div style={{width:"100vw",display:"flex",justifyContent:"center",height:height-57,alignItems:"center",flexDirection:"column"}}>
+                <div className="cssload-wrap">
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                    <div className="cssload-circle"></div>
+                </div>
+            </div>
+        </div>
+    )
+}
+
 
 class Terminal extends React.Component {
     constructor(props) {
@@ -24,7 +135,7 @@ class Terminal extends React.Component {
 
     componentDidMount() {
         this.setState({height: window.innerHeight})
-        window.onresize=()=>{
+        window.onresize = () => {
             this.setState({height: window.innerHeight})
         }
         document.addEventListener("keydown", (e) => {
@@ -32,12 +143,13 @@ class Terminal extends React.Component {
                 let input = document.getElementById("input")
                 let buff = input.value
                 this.setState({data: this.data.pushCommand(buff)})
-                let ans = commands(buff,this.data)
-                if(ans[0]==-1){
+                let ans = commands(buff, this.data)
+                if (ans[0] == -1) {
                     this.setState({data: this.data.pushErrorMessage(ans[1], "bash", "command not found")})
-                }else if(ans[0]==1){
+                } else if (ans[0] == 1) {
                     this.setState({data: this.data.pushMessage(ans[1])})
-                }else if(ans[0]==0){}
+                } else if (ans[0] == 0) {
+                }
                 setTimeout(() => input.value = "")
                 let terminal = document.getElementById("terminal")
                 terminal.scrollTo(0, terminal.offsetHeight, {behavior: 'smooth'})
