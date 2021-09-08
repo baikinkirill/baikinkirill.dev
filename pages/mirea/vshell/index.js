@@ -4,7 +4,25 @@ import commands from "./commands";
 import JSZip from 'jszip'
 import $ from 'jquery'
 import {Head} from "next/document";
-let setstp=null
+
+let setstp = null
+
+let storage = {}
+
+function add(isDir, path, date) {
+    let bpath = path.split("/")
+    if(bpath.length>1){
+        if(bpath[1]===""){
+            date[bpath[0]]={}
+        }else{
+            add(isDir,path.replace(bpath[0]+"/",""),date[bpath[0]])
+        }
+    }else{
+        date[path]=null
+    }
+}
+
+
 
 function handleFile() {
     $("#file").on("change", function (evt) {
@@ -12,12 +30,15 @@ function handleFile() {
             JSZip.loadAsync(f)
                 .then(function (zip) {
                     zip.forEach(function (relativePath, zipEntry) {
-                        console.log(zipEntry.name)
-                        setTimeout(()=>{setstp(3)},1500)
+                        add(zipEntry.dir,zipEntry.name,storage)
+                        setTimeout(() => {
+                            setstp(3)
+                        }, 0)
                     });
                 }, function (e) {
                 });
         }
+
         var files = evt.target.files;
         for (var i = 0; i < files.length; i++) {
             handleFile(files[i]);
@@ -26,14 +47,38 @@ function handleFile() {
 }
 
 export default function Index() {
-    const [startPage,setStartPage] = useState(1)
-    setstp=setStartPage
+    let data = {
+        a: {
+            b: {
+                c: "kl",
+                j: "kkl"
+            }
+        }
+    }
+
+    function foo(date) {
+        for (let i in date) {
+            if (i == "c") {
+                date[i] = "d465sa"
+                return
+            } else {
+                foo(date[i])
+                return;
+            }
+        }
+    }
+
+    foo(data)
+
+
+    const [startPage, setStartPage] = useState(1)
+    setstp = setStartPage
 
     // setTimeout(()=>setStartPage(2),1000)
-    if(startPage==1){
-        return(<div><GetArchive setStartPage={setStartPage}/></div>)
-    }else if(startPage==2){
-        return(<div><Loader/></div>)
+    if (startPage == 1) {
+        return (<div><GetArchive setStartPage={setStartPage}/></div>)
+    } else if (startPage == 2) {
+        return (<div><Loader/></div>)
 
     }
 
@@ -47,42 +92,57 @@ export default function Index() {
 }
 
 
-function GetArchive(props){
-    const [height,setHeight] = useState(0)
+function GetArchive(props) {
+    const [height, setHeight] = useState(0)
 
     useEffect(() => {
         setHeight(window.innerHeight)
         handleFile()
     }, [])
-    return(
+    return (
         <div>
             <Header/>
-                <div style={{width:"100vw",display:"flex",justifyContent:"center",height:height-200,alignItems:"center",flexDirection:"column"}}>
-                <h1 style={{textAlign:"center",padding:"10px"}}>Для начала работы загрузите образ системы</h1>
-                    <div className="example-2">
-                        <div className="form-group">
-                            <input onChange={()=>props.setStartPage(2)} type="file" name="file" id="file" className="input-file"/>
-                                <label htmlFor="file" className="btn btn-tertiary js-labelFile">
-                                    <span className="js-fileName">Загрузить файл</span>
-                                </label>
-                        </div>
+            <div style={{
+                width: "100vw",
+                display: "flex",
+                justifyContent: "center",
+                height: height - 200,
+                alignItems: "center",
+                flexDirection: "column"
+            }}>
+                <h1 style={{textAlign: "center", padding: "10px"}}>Для начала работы загрузите образ системы</h1>
+                <div className="example-2">
+                    <div className="form-group">
+                        <input onChange={() => props.setStartPage(2)} type="file" name="file" id="file"
+                               className="input-file"/>
+                        <label htmlFor="file" className="btn btn-tertiary js-labelFile">
+                            <span className="js-fileName">Загрузить файл</span>
+                        </label>
                     </div>
+                </div>
             </div>
         </div>
     )
 }
 
-function Loader(){
-    const [height,setHeight] = useState(0)
+function Loader() {
+    const [height, setHeight] = useState(0)
 
     useEffect(() => {
         setHeight(window.innerHeight)
         handleFile()
     }, [])
-    return(
+    return (
         <div>
             <Header/>
-            <div style={{width:"100vw",display:"flex",justifyContent:"center",height:height-57,alignItems:"center",flexDirection:"column"}}>
+            <div style={{
+                width: "100vw",
+                display: "flex",
+                justifyContent: "center",
+                height: height - 57,
+                alignItems: "center",
+                flexDirection: "column"
+            }}>
                 <div className="cssload-wrap">
                     <div className="cssload-circle"></div>
                     <div className="cssload-circle"></div>
@@ -143,9 +203,9 @@ class Terminal extends React.Component {
                 let input = document.getElementById("input")
                 let buff = input.value
                 this.setState({data: this.data.pushCommand(buff)})
-                let ans = commands(buff, this.data)
+                let ans = commands(buff, this.data,storage)
                 if (ans[0] == -1) {
-                    this.setState({data: this.data.pushErrorMessage(ans[1], "bash", "command not found")})
+                    this.setState({data: this.data.pushErrorMessage(ans[1], "bash", ans[2])})
                 } else if (ans[0] == 1) {
                     this.setState({data: this.data.pushMessage(ans[1])})
                 } else if (ans[0] == 0) {
