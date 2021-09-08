@@ -1,7 +1,7 @@
 export default function commands(message,dataClass){
 
     const regex = /([^\s]*)/gm;
-    const str = message.toLowerCase();
+    const str = message.toLocaleLowerCase();
     let m;
     let command=[]
 
