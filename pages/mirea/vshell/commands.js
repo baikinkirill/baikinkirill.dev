@@ -17,7 +17,7 @@ export default function commands(message,dataClass){
         });
     }
 
-    if(command[0]==="")
+    if(command.length==0)
         return [0,0]
     switch (command[0]){
         case 'su':
