@@ -119,10 +119,10 @@ function GetArchive(props) {
                 <h1 style={{textAlign: "center", padding: "10px"}}>Для начала работы загрузите образ системы</h1>
                 <div className="example-2">
                     <div className="form-group">
-                        <input onChange={() => props.setStartPage(2)} type="file" name="file" id="file"
+                        <input accept=".zip" onChange={() => props.setStartPage(2)} type="file" name="file" id="file"
                                className="input-file"/>
                         <label style={{textAlign:"center"}} htmlFor="file" className="btn btn-tertiary js-labelFile">
-                            <span className="js-fileName">Загрузить файл</span>
+                            <span className="js-fileName">Загрузить .zip файл</span>
                         </label>
                     </div>
                     <div style={{textAlign:"center",color:"gray",marginTop:"10px",fontSize:"14px",cursor:"pointer"}} onClick={()=>{
