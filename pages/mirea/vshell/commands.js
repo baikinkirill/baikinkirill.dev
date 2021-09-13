@@ -46,6 +46,7 @@ export default function commands(message, dataClass, storage) {
             if(buff[0]==buff[1]&&buff[0]=="/"){
                 buff=buff.replace("/","")
             }
+            buff=buff.replaceAll("//","/")
             let data=ls(storage,buff)
             if(data==undefined){
                 return [-1, command[2], "no such file or directory"]
