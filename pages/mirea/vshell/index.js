@@ -9,16 +9,16 @@ let setstp = null
 
 let storage = {}
 
-function add(isDir, path, date) {
+function add(isDir, path, date,data="") {
     let bpath = path.split("/")
     if(bpath.length>1){
         if(bpath[1]===""){
             date[bpath[0]]={}
         }else{
-            add(isDir,path.replace(bpath[0]+"/",""),date[bpath[0]])
+            add(isDir,path.replace(bpath[0]+"/",""),date[bpath[0]],data)
         }
     }else{
-        date[path]=null
+        date[path]=data
     }
 }
 
@@ -30,7 +30,13 @@ function handleFile() {
             JSZip.loadAsync(f)
                 .then(function (zip) {
                     zip.forEach(function (relativePath, zipEntry) {
+                        if(!zipEntry.dir){
+                            (zip.file(zipEntry.name).async("string").then((r)=>{
+                                add(zipEntry.dir,zipEntry.name,storage,r)
+                            }))
+                        }
                         add(zipEntry.dir,zipEntry.name,storage)
+
                         setTimeout(() => {
                             setstp(3)
                         }, 0)
@@ -115,10 +121,44 @@ function GetArchive(props) {
                     <div className="form-group">
                         <input onChange={() => props.setStartPage(2)} type="file" name="file" id="file"
                                className="input-file"/>
-                        <label htmlFor="file" className="btn btn-tertiary js-labelFile">
+                        <label style={{textAlign:"center"}} htmlFor="file" className="btn btn-tertiary js-labelFile">
                             <span className="js-fileName">Загрузить файл</span>
                         </label>
                     </div>
+                    <div style={{textAlign:"center",color:"gray",marginTop:"10px",fontSize:"14px",cursor:"pointer"}} onClick={()=>{
+                        storage={
+                            bin:{
+                                docker:{dockerfile:`
+FROM node:12
+
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 8080
+CMD [ "node", "server.js" ]
+                                
+                                `,container:{}},
+                            },
+                            boot:{},
+                            dev:{},
+                            etc:{},
+                            home:{},
+                            lib:{},
+                            lib32:{},
+                            lib64:{},
+                            libx32:{},
+                            root:{},
+                            media:{},
+                            mnt:{},
+
+                        }
+                        setstp(3)
+                    }}>Или ипользовать готовый образ.</div>
                 </div>
             </div>
         </div>
@@ -212,7 +252,7 @@ class Terminal extends React.Component {
                 }
                 setTimeout(() => input.value = "")
                 let terminal = document.getElementById("terminal")
-                terminal.scrollTo(0, terminal.offsetHeight, {behavior: 'smooth'})
+                terminal.scrollTo(0, terminal.scrollHeight)
             }
         })
     }
@@ -259,7 +299,9 @@ class Terminal extends React.Component {
                                     {e.path}
                                 </div>
                                 <div>
-                                    {e.command}
+                                    {e.command.split("\n").map((ef)=>{
+                                        return <div>{ef}</div>
+                                    })}
                                 </div>
                             </div>
                         )
