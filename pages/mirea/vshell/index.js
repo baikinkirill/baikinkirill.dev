@@ -26,6 +26,11 @@ function add(isDir, path, date,data="") {
 
 function handleFile() {
     $("#file").on("change", function (evt) {
+        let b=evt.target.value.toString().split(".")
+        if(b[b.length-1]!=="zip"){
+            alert("Это не zip архив")
+            window.location.reload()
+        }
         function handleFile(f) {
             JSZip.loadAsync(f)
                 .then(function (zip) {
@@ -42,7 +47,12 @@ function handleFile() {
                         }, 0)
                     });
                 }, function (e) {
-                });
+                })
+                .catch((e)=>{
+                    alert("Ошибка")
+                    window.location.reload()
+
+                })
         }
 
         var files = evt.target.files;
