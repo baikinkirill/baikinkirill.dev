@@ -1,28 +1,61 @@
 import Header from "../../../components/Header"
-import styles from './index.module.scss'
+import styles from "./index.module.scss"
+import { useState } from "react"
 
 export default function Index(props) {
+  const [url, setUrl] = useState("")
+  const [status, setStatus] = useState("")
 
   return (
     <div>
+
       <Header />
 
       <div className={styles.parent}>
         <h1>Поиск зависимостей в <code>NPM</code></h1>
-        <input id={"input"} placeholder={"Напишите что-нибудь. Например, redux"}/>
-        <button onClick={()=>{
+        <input id={"input"} placeholder={"Напишите что-нибудь. Например, next"} />
+
+        <img src={url} />
+        <h4 style={{maxWidth:"700px"}}>{status}</h4>
+
+        <button onClick={() => {
           let t = document.getElementById("input").value
-
-          fetch("https://registry.npmjs.org/"+t.toString())
-            .then((res)=>res.json())
-            .then((data)=>{
-              let last={}
+          setStatus("Ищу")
+          setUrl("")
+          fetch("https://api.allorigins.win/raw?url=https://registry.npmjs.org/" + t.toString())
+            .then((res) => res.json())
+            .then((data) => {
+              let last = {}
               for (var i in data.versions)
-                last = i;
-              console.log(last.devDependencies)
-            })
+                last = data.versions[i]
+              let buff = last.dependencies
+              if(buff==undefined){
+                setStatus("Зависимости не найдены.")
+              }else if(buff.length==0){
+                setStatus("Зависимости не найдены.")
+              }
+              let res = ""
+              for (var i in buff) {
+                let q = i.match(/(\/.*)/gm)
+                if (q !== null) {
+                  q = q[0].replace("/", "")
+                  q = q.replaceAll("node", "nodejs")
+                  q = q.replaceAll("-", "_")
+                  res = res + t + "->" + q + ";"
+                }
+              }
+              console.log(res)
+              setStatus("")
+              if(res==="")
+                setStatus("Зависимости не найдены.")
 
-        }}>Найти</button>
+              setUrl(`https://quickchart.io/graphviz?format=png&graph=digraph{${res}}`)
+            })
+            .catch(()=>{
+              setStatus("Произошла ошибка. Промежуточный сервис временно недоступен. Повторите запрос через минуту")
+            })
+        }}>Найти
+        </button>
       </div>
 
     </div>
