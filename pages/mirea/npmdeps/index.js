@@ -21,7 +21,7 @@ export default function Index(props) {
             q = q[0].replace("/", "")
             q = q.replaceAll("node", "nodejs")
             q = q.replaceAll("-", "_")
-
+            name=name.replaceAll("-","_")
             res = res + name + "->" + q + ";"
           }
         }
@@ -40,7 +40,7 @@ export default function Index(props) {
 
       <div className={styles.parent}>
         <h1>Поиск зависимостей в <code>NPM</code></h1>
-        <input id={"input"} placeholder={"Напишите что-нибудь. Например, next"} />
+        <input id={"input"} placeholder={"Напишите что-нибудь. Например, next, react-native или expo"} />
 
         <img src={url} />
         <h4 style={{maxWidth:"700px"}}>{status}</h4>
@@ -69,6 +69,7 @@ export default function Index(props) {
 
                   q = q.replaceAll("node", "nodejs")
                   q = q.replaceAll("-", "_")
+                  t=t.replaceAll("-","_")
                   res = res + t + "->" + q + ";"
                 }
               }
