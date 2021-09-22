@@ -2,6 +2,8 @@ import Header from "../../../components/Header"
 import styles from "./index.module.scss"
 import { useState } from "react"
 
+let n = 0;
+
 export default function Index(props) {
   const [url, setUrl] = useState("")
   const [status, setStatus] = useState("")
@@ -16,13 +18,22 @@ export default function Index(props) {
           last = data.versions[i]
         let buff = last.dependencies
         for (var i in buff) {
-          let q = i.match(/(\/.*)/gm)
+          let q = i
           if (q !== null) {
-            q = q[0].replace("/", "")
+            n++
+            if(n>200)
+              return
+            q = q.replaceAll("@", "")
+            q = q.replaceAll("/", "")
             q = q.replaceAll("node", "nodejs")
             q = q.replaceAll("-", "_")
+            q = q.replaceAll(".", "")
             name=name.replaceAll("-","_")
+            name=name.replaceAll("@","")
+            name=name.replaceAll("/","")
+            name=name.replaceAll(".","")
             res = res + name + "->" + q + ";"
+            console.log(name)
           }
         }
 
@@ -62,10 +73,14 @@ export default function Index(props) {
                 setStatus("Зависимости не найдены.")
               }
               for (var i in buff) {
-                let q = i.match(/(\/.*)/gm)
+                n++
+                if(n>200)
+                  return
+                let q = i
                 if (q !== null) {
-                  q = q[0].replace("/", "")
                   search(q)
+                  q = q.replaceAll("@", "")
+                  q = q.replaceAll("/", "")
 
                   q = q.replaceAll("node", "nodejs")
                   q = q.replaceAll("-", "_")
