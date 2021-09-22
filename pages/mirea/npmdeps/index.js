@@ -5,6 +5,33 @@ import { useState } from "react"
 export default function Index(props) {
   const [url, setUrl] = useState("")
   const [status, setStatus] = useState("")
+  let res = ""
+
+  const search=(name)=>{
+    fetch("https://api.allorigins.win/raw?url=https://registry.npmjs.org/" +name)
+      .then((res) => res.json())
+      .then((data) => {
+        let last = {}
+        for (var i in data.versions)
+          last = data.versions[i]
+        let buff = last.dependencies
+        for (var i in buff) {
+          let q = i.match(/(\/.*)/gm)
+          if (q !== null) {
+            q = q[0].replace("/", "")
+            q = q.replaceAll("node", "nodejs")
+            q = q.replaceAll("-", "_")
+
+            res = res + name + "->" + q + ";"
+          }
+        }
+
+
+        setUrl(`https://quickchart.io/graphviz?format=png&graph=digraph{${res}}`)
+      })
+      .catch(()=>{
+      })
+  }
 
   return (
     <div>
@@ -34,11 +61,12 @@ export default function Index(props) {
               }else if(buff.length==0){
                 setStatus("Зависимости не найдены.")
               }
-              let res = ""
               for (var i in buff) {
                 let q = i.match(/(\/.*)/gm)
                 if (q !== null) {
                   q = q[0].replace("/", "")
+                  search(q)
+
                   q = q.replaceAll("node", "nodejs")
                   q = q.replaceAll("-", "_")
                   res = res + t + "->" + q + ";"
