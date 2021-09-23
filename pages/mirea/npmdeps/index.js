@@ -50,14 +50,14 @@ export default function Index(props) {
       <Header />
 
       <div className={styles.parent}>
-        <h1>Поиск зависимостей в <code>NPM</code></h1>
+        <h1 style={{textAlign:"center"}}>Поиск зависимостей в <code>NPM</code></h1>
         <input id={"input"} placeholder={"Напишите что-нибудь. Например, next, react-native или expo"} />
 
         <img src={url} />
         <h4 style={{maxWidth:"700px"}}>{status}</h4>
 
         <button onClick={() => {
-          let t = document.getElementById("input").value
+          let t = document.getElementById("input").value.toString().toLowerCase()
           setStatus("Ищу")
           setUrl("")
           fetch("https://api.allorigins.win/raw?url=https://registry.npmjs.org/" + t.toString())
