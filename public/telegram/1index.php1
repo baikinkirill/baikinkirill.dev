@@ -1,6 +1,0 @@
-<?php
-//header("Location: tg://resolve?domain=finebot_bot");
-$f=file_get_contents("1i1ndex.html");
-  echo $f;
-
-?>

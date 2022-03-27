@@ -1,7 +1,7 @@
-module.exports = {
-  devIndicators: {
-    autoPrerender: false,
-  },
-  exportTrailingSlash: true,
-  
-}
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+ reactStrictMode: true,
+ images: {},
+};
+
+module.exports = nextConfig;
