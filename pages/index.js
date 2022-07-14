@@ -8,22 +8,27 @@ import getSeo from '../services/getSeo';
 
 export default function Index() {
  const [height, setHeight] = useState(200);
+
  useEffect(() => {
   setHeight(window.innerHeight);
+
+  window.addEventListener('resize', () => {
+   setHeight(window.innerHeight);
+  });
  }, []);
 
  return (
- <div>
-  {getSeo("THIS IS WEBPAGE TITLE","THIS IS WEBPAGE DESCRIPTION")}
-  <Canvas dpr={[1, 2]} style={{ height: `${height}px` }} camera={{ position: [0, 0, 10], fov: 22 }}>
-   <Bg />
-   <Suspense fallback={null}>
-    <Noodles />
-    <Caption>{`FINEBOT.SITE\nСКОРО...\nКОГДА-НИБУДЬ...`}</Caption>
-    <Rig />
-   </Suspense>
-  </Canvas>
- </div>
+  <div>
+   {getSeo('THIS IS WEBPAGE TITLE', 'THIS IS WEBPAGE DESCRIPTION')}
+   <Canvas dpr={[1, 2]} style={{ height: `${height}px` }} camera={{ position: [0, 0, 10], fov: 22 }}>
+    <Bg />
+    <Suspense fallback={null}>
+     <Noodles />
+     <Caption>{`FINEBOT.SITE\nСКОРО...\nКОГДА-НИБУДЬ...`}</Caption>
+     <Rig />
+    </Suspense>
+   </Canvas>
+  </div>
  );
 }
 
