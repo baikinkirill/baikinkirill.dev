@@ -17,23 +17,25 @@ body,
 
 body {
   overscroll-behavior-y: none;
-  background: #f5f5f5;
-  font-family: 'Inter var', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: white;
+  background-color: black;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-a {
+a{
   color: white;
 }
 
-a {
-  pointer-events: all;
-  color: white;
-  text-decoration: none;
-}
-
-svg {
-  fill: white;
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/fonts/poppins/Poppins-Bold.ttf) format('truetype');
 }
