@@ -5,7 +5,7 @@ import styles from '../styles/index.module.scss';
 export default function Index() {
 
  return (
-  <div>
+  <div className={styles.parent}>
    {getSeo('THIS IS WEBPAGE TITLE', 'THIS IS WEBPAGE DESCRIPTION')}
    <div data-text='baikinkirill.dev' className={styles.glitch}>
     <a href='https://github.com/baikinkirill'>baikinkirill.dev</a>

@@ -1,3 +1,9 @@
+.parent{
+	span{
+		font-size: min(4vw, 17px);
+	}
+}
+
 .glitch{
 	color:white;
 	font-size:min(7vw, 50px);
@@ -10,6 +16,7 @@
 		text-decoration: none;
 	}
 }
+
 @keyframes noise-anim{
 	$steps:20;
 	@for $i from 0 through $steps{
