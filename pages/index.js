@@ -10,7 +10,7 @@ export default function Index() {
    <div data-text='baikinkirill.dev' className={styles.glitch}>
     <a href='https://github.com/baikinkirill'>baikinkirill.dev</a>
    </div>
-   <span>Say no <a target={'_blank'} rel={'noreferrer'} href='https://laptev.dev'>laptev.dev</a>!</span>
+   <span>With ❤ to <a target={'_blank'} rel={'noreferrer'} href='https://laptev.dev'>laptev.dev</a></span>
   </div>
  );
 }
