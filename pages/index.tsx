@@ -6,7 +6,7 @@ export default function Index() {
 
  return (
   <div className={styles.parent}>
-   {getSeo('THIS IS WEBPAGE TITLE', 'THIS IS WEBPAGE DESCRIPTION')}
+   {getSeo('Hi there', '')}
    <div data-text='baikinkirill.dev' className={styles.glitch}>
     <a href='https://github.com/baikinkirill'>baikinkirill.dev</a>
    </div>
