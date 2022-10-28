@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Fragment, ReactElement, useEffect } from 'react'
 import getSeo from '../services/getSeo'
 import styles from '../styles/index.module.scss'
 import { MainPage } from '../types/types'
 import { NextPageContext } from 'next'
 import Image from 'next/image'
+import tippy from 'tippy.js'
 
 export default function Index (props: MainPage): React.ReactNode {
   const { isVPN } = props
@@ -14,12 +15,32 @@ export default function Index (props: MainPage): React.ReactNode {
     <a href='https://github.com/baikinkirill'>baikinkirill.dev</a>
    </div>
    <span>With ❤ to <a target={'_blank'} rel={'noreferrer'} href='https://laptev.dev'>laptev.dev</a></span>
-   {isVPN && (
-    <div className={styles.vpnLogo}>
-     <Image width={'45px'} height={'45px'} src='/vpn.png' alt='' />
-    </div>
-   )}
+   <ShowVPNIcon show={isVPN} />
   </div>
+  )
+}
+
+function ShowVPNIcon (props: { show: boolean }): ReactElement {
+  if (!props.show) {
+    return (
+   <Fragment key={'vpnIcon'} />
+    )
+  }
+
+  useEffect(() => {
+    tippy('#iconContainer', {
+      content: 'VPN detected. Your connection is secure.',
+      animation: 'perspective-subtle',
+      placement: 'bottom'
+    })
+  }, [])
+
+  return (
+  <Fragment key={'vpnIcon'}>
+   <div className={styles.vpnLogo}>
+    <Image id={'iconContainer'} width={'45px'} height={'45px'} src='/vpn.png' alt='' />
+   </div>
+  </Fragment>
   )
 }
 
