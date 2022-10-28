@@ -4,4 +4,6 @@ declare global {
  }
 }
 
-export interface someInter {}
+export interface MainPage{
+ isVPN: boolean,
+}
