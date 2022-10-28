@@ -19,6 +19,15 @@
 	"plugins": [
 		"react"
 	],
+	"ignorePatterns": "Noodles.js",
 	"rules": {
+		"semi": [
+			"error",
+			"always"
+		],
+		"@typescript-eslint/semi": [
+			"error",
+			"always"
+		]
 	}
 }

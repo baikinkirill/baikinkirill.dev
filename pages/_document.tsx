@@ -1,13 +1,16 @@
-import { Html, Head, Main, NextScript } from 'next/document';
+import { Head, Html, Main, NextScript } from 'next/document';
+import React, { ReactElement } from 'react';
 
-export default function Document() {
- return (
+export default function Document (): ReactElement {
+  return (
   <Html lang={'ru'}>
-   <Head />
+   <Head>
+    <title>Hi there</title>
+   </Head>
    <body>
-    <Main />
-    <NextScript />
+   <Main />
+   <NextScript />
    </body>
   </Html>
- );
+  );
 }
