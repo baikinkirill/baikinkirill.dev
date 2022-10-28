@@ -21,19 +21,21 @@ export default function Index (props: MainPage): React.ReactNode {
 }
 
 function ShowVPNIcon (props: { show: boolean }): ReactElement {
+  useEffect(() => {
+    if (props.show) {
+      tippy('#iconContainer', {
+        content: 'VPN detected. Your connection is secure.',
+        animation: 'perspective-subtle',
+        placement: 'bottom'
+      })
+    }
+  }, [])
+
   if (!props.show) {
     return (
    <Fragment key={'vpnIcon'} />
     )
   }
-
-  useEffect(() => {
-    tippy('#iconContainer', {
-      content: 'VPN detected. Your connection is secure.',
-      animation: 'perspective-subtle',
-      placement: 'bottom'
-    })
-  }, [])
 
   return (
   <Fragment key={'vpnIcon'}>
