@@ -1,11 +1,17 @@
 import '../styles/globals.css';
-import 'tippy.js/dist/tippy.css';
-import 'tippy.js/animations/perspective-subtle.css';
 import type { AppProps } from 'next/app';
-import React, { ReactElement } from 'react';
+import { ReactElement, ReactNode } from 'react';
+import { NextPage } from 'next';
 
-function MyApp ({ Component, pageProps }: AppProps): ReactElement {
-  return <Component {...pageProps} />;
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout
+};
+
+export default function App ({ Component, pageProps }: AppPropsWithLayout): ReactNode {
+  const getLayout = Component.getLayout ?? ((page) => page);
+  return getLayout(<Component {...pageProps} />);
 }
-
-export default MyApp;

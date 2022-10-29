@@ -1,5 +1,5 @@
 {
-  "name": "my-app",
+  "name": "baikinkirill.dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,25 +9,19 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-three/drei": "8.8.3",
-    "@react-three/fiber": "7.0.25",
-    "@types/three": "0.136.1",
-    "lamina": "1.0.5",
-    "lottie-web": "^5.9.1",
-    "next": "12.1.1",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "sass": "^1.49.9",
-    "three": "0.137.5",
+    "next": "13.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "sass": "^1.55.0",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {
-    "@types/node": "17.0.23",
-    "@types/react": "17.0.43",
-    "@types/react-dom": "17.0.14",
+    "@types/node": "18.11.7",
+    "@types/react": "18.0.24",
+    "@types/react-dom": "18.0.8",
     "@typescript-eslint/eslint-plugin": "^5.41.0",
     "eslint": "^8.26.0",
-    "eslint-config-next": "12.1.1",
+    "eslint-config-next": "13.0.0",
     "eslint-config-standard-with-typescript": "^23.0.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-n": "^15.3.0",

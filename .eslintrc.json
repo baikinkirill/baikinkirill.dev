@@ -28,6 +28,9 @@
 		"@typescript-eslint/semi": [
 			"error",
 			"always"
-		]
+		],
+		"react/react-in-jsx-scope": "off",
+		"no-tabs": "off",
+		"no-mixed-spaces-and-tabs": "off"
 	}
 }
