@@ -16,19 +16,20 @@ export default function MainLayout ({ children, desc, title }: MainLayoutProps):
 		<meta property='og:title' content={title}/>
 		<meta property='og:type' content='website'/>
 		<meta property='og:url' content='https://baikinkirill.dev'/>
-		<meta property='og:image' content='./images/cover.webp'/>
+		<meta property='og:image' content='./images/cover.png'/>
 		<meta property='og:image:alt' content='baikinkirill.dev'/>
-		<meta property='og:image:width' content='1258'/>
-		<meta property='og:image:height' content='617'/>
+		<meta property='og:image:width' content='1280'/>
+		<meta property='og:image:height' content='640'/>
 
 		<meta name='og:description' content={desc}/>
 		<meta name='twitter:card' content='summary'/>
 		<meta name='twitter:description' content={desc}/>
 		<meta name='twitter:title' content={title}/>
-		<meta name='twitter:image' content='./images/cover.webp'/>
+		<meta name='twitter:image' content='./images/cover.png'/>
+		<meta name='twitter:image:src' content='./images/cover.png'/>
 		<meta name='twitter:image:alt' content='baikinkirill.dev'/>
-		<meta name='twitter:image:width' content='1258'/>
-		<meta name='twitter:image:height' content='617'/>
+		<meta name='twitter:image:width' content='1280'/>
+		<meta name='twitter:image:height' content='640'/>
 		<meta name='twitter:site' content='https://baikinkirill.dev'/>
 		<link rel='canonical' href='https://baikinkirill.dev'/>
 		<link rel='apple-touch-icon' href='./images/apple-touch-icon.png'/>
