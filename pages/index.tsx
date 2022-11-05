@@ -8,6 +8,7 @@ import { MainPageProps } from '../types/MainPageProps';
 
 const Home = (props: MainPageProps): React.ReactNode => {
   const { isVPN } = props;
+
   return (
 	<div className={styles.parent}>
 	 <div className={styles.container}>
@@ -17,13 +18,12 @@ const Home = (props: MainPageProps): React.ReactNode => {
 		<p>
 		 {/* eslint-disable-next-line react/no-unescaped-entities */}
 		 Hi there! I'm Kirill, a frontent developer on ReactJS & NextJS.
-		 {/* <ul> */}
-		 {/* <li>My achievements</li> */}
-		 {/* <li>Projects</li> */}
-		 {/* </ul> */}
 		</p>
 		<span>With ❤ to <a target={'_blank'} rel={'noreferrer'} href='https://laptev.dev'>laptev.dev</a></span>
 		<ShowVPNIcon show={isVPN}/>
+	 </div>
+	 <div className={styles.domainSell}>
+		<a href={'https://список-говна.рф'} target={'_blank'} rel="noreferrer">Продам <s>гараж</s> домен</a>
 	 </div>
 	</div>
   );
