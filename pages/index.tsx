@@ -57,7 +57,6 @@ function ShowVPNIcon (props: { show: boolean }): ReactElement {
 
 export function getServerSideProps ({ req }: NextPageContext): { props: MainPageProps } {
   let isVPN = false;
-  console.log(req);
   if (req != null) {
     const ip = req.headers['x-forwarded-for'] ?? req.connection.remoteAddress;
     isVPN = ip?.includes(process?.env?.NEXT_APP_VPN_HOST ??
