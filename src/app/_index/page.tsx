@@ -6,7 +6,7 @@ import { SocialIcons } from './social/Social';
 import { Laptev } from '@/app/_index/laptev/Laptev';
 import { Main } from '@/app/_index/main/Main';
 import { Header } from '@/app/_index/header/Header';
-import { BottomStickyContainer } from '@/components/BottomStickyContainer/BottomStickyContainer';
+import { BottomStickyContainer } from '@/components/BottomStickyContainer';
 
 export const metadata = buildMetadata();
 

@@ -1,5 +1,5 @@
-export const SITE_NAME = process.env.SITE_NAME;
-export const SITE_URL = process.env.SITE_URL;
+export const SITE_NAME = String(process.env.SITE_NAME);
+export const SITE_URL = String(process.env.SITE_URL);
 
 export const SHOW_SOCIAL = process.env.SHOW_SOCIAL;
 export const GITHUB_URL = process.env.GITHUB_URL;
