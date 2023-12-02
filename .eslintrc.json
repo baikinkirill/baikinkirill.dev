@@ -34,6 +34,7 @@
 		"no-tabs": "off",
 		"no-mixed-spaces-and-tabs": "off",
 		"import/export": "off",
-		"@typescript-eslint/indent": ["error", 4]
+		"@typescript-eslint/indent": ["error", 4],
+		"no-extra-boolean-cast": "off"
 	}
 }
