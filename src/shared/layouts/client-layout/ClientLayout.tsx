@@ -21,7 +21,6 @@ export const ClientLayout: React.FC<ClientLayoutProps> = (props) => {
                 <meta property='og:image:alt' content={SITE_NAME}/>
                 <meta property='og:image:width' content='1280'/>
                 <meta property='og:image:height' content='640'/>
-
                 <meta name='og:description' content={desc}/>
                 <meta name='twitter:card' content='summary'/>
                 <meta name='twitter:description' content={desc}/>
@@ -37,7 +36,6 @@ export const ClientLayout: React.FC<ClientLayoutProps> = (props) => {
                 <meta name='mobile-web-app-capable' content='yes'/>
                 <meta name='apple-mobile-web-app-capable' content='yes'/>
                 <meta name='yandex-verification' content='66c80ae5f659ee57'/>
-
                 <link rel='icon' type='image/png' sizes='32x32' href='./images/favicon-32x32.png'/>
                 <link rel='icon' type='image/png' sizes='16x16' href='./images/favicon-16x16.png'/>
                 <link rel='manifest' href='./site.webmanifest'/>
