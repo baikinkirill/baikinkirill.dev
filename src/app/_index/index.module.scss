@@ -22,20 +22,8 @@
 		}
 	}
 
-	.domainSell {
-		position: absolute;
-		bottom: 25px;
-		right: 25px;
-
-
-		a {
-			font-size: 0.5em;
-			color: $gray-600;
-
-			&:hover {
-				color: blue;
-			}
-		}
+	* {
+		margin-bottom: 0;
 	}
 
 	.container {
@@ -43,17 +31,13 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
+		gap: 15px;
 
 		h1 {
 			line-height: 1;
-			margin: 0;
 			font-size: 2em;
 
 			a {
-				font-weight: 800;
-				font-family: "Poppins", sans-serif;
-				text-decoration: none;
-
 				&:hover {
 					color: $primary-color;
 				}
@@ -62,22 +46,13 @@
 
 		p {
 			line-height: 1.875em;
+			margin: 0;
+			color: $primary-color;
+			font-size: 1em;
 		}
 
 		span {
 			font-size: min(4vw, 17px);
-		}
-
-		.vpnLogo {
-			margin-top: 50px;
-			display: flex;
-			justify-content: center;
-
-		}
-
-		p {
-			color: $primary-color;
-			font-size: 1em;
 		}
 	}
 }
