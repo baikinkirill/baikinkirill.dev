@@ -16,7 +16,7 @@ const Page: React.FC = () => (
                     {'Hi there! I\'m Kirill, a frontend developer on ReactJS & NextJS.'}
                 </p>
                 <span>
-                    {'With ❤ to'}
+                    {'With ❤ to '}
                     <a
                         target={'_blank'}
                         rel={'noreferrer'}
