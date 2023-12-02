@@ -1,27 +1,28 @@
 import { Metadata } from 'next';
+import { KEYWORDS, SITE_NAME, SITE_URL } from '@/shared/constants';
 
 const images = [{
     url: './images/cover.png',
-    alt: 'baikinkirill.dev',
+    alt: SITE_NAME,
     width: 1280,
     height: 640
 }];
 
 export const defaultMetadata: Metadata = {
     title: 'Hi there!',
-    keywords: 'baikinkirill.dev, кириешка.рф, Баикин Кирилл, Baikin Kirill',
+    keywords: KEYWORDS,
     description: null,
     openGraph: {
         images,
         title: 'Hi there!',
         type: 'website',
-        url: 'https://baikinkirill.dev'
+        url: SITE_URL
     },
     twitter: {
         images,
         card: 'summary',
         title: 'Hi there!',
-        site: 'https://baikinkirill.dev'
+        site: SITE_URL
     },
     appleWebApp: {
         capable: true
@@ -32,7 +33,7 @@ export const defaultMetadata: Metadata = {
     other: {
         'msapplication-TileColor': '#da532c',
         'theme-color': '#ffffff',
-        canonical: 'https://baikinkirill.dev',
+        canonical: SITE_URL,
         'apple-touch-icon': './images/apple-touch-icon.png',
         'favicon-32x32': './images/favicon-32x32.png',
         'favicon-16x16': './images/favicon-16x16.png',
