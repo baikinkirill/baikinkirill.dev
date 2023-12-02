@@ -5,7 +5,8 @@
 	},
 	"extends": [
 		"plugin:react/recommended",
-		"standard-with-typescript"
+		"standard-with-typescript",
+		"next/core-web-vitals"
 	],
 	"overrides": [
 	],
@@ -31,6 +32,8 @@
 		],
 		"react/react-in-jsx-scope": "off",
 		"no-tabs": "off",
-		"no-mixed-spaces-and-tabs": "off"
+		"no-mixed-spaces-and-tabs": "off",
+		"import/export": "off",
+		"@typescript-eslint/indent": ["error", 4]
 	}
 }
