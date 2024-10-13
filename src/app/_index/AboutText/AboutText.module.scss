@@ -1,0 +1,20 @@
+@import "@/shared/styles/colors.scss";
+
+.aboutText {
+	.title {
+		font-size: 50px;
+
+		b {
+			color: $primary-color;
+		}
+
+		.ellipse {
+			width: 115%;
+			height: 115%;
+		}
+	}
+
+	.subTitle {
+		font-size: 36px;
+	}
+}
