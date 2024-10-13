@@ -1,28 +1,17 @@
 import React from 'react';
-
-import styles from './index.module.scss';
 import { buildMetadata } from '@/shared/utils/metadata';
-import { SocialIcons } from './social/Social';
-import { Laptev } from '@/app/_index/laptev/Laptev';
-import { Main } from '@/app/_index/main/Main';
-import { Header } from '@/app/_index/header/Header';
-import { BottomStickyContainer } from '@/components/BottomStickyContainer';
+import { SocialIcons } from '@/components/SocialIcons/SocialIcons';
+import { Avatar } from '@/app/_index/Avatar/Avatar';
+import { AboutText } from '@/app/_index/AboutText';
 
 export const metadata = buildMetadata();
 
 const Page: React.FC = () => (
-    <>
-        <div className={styles.parent}>
-            <div className={styles.container}>
-                <Header/>
-                <Main/>
-                <SocialIcons/>
-            </div>
-            <BottomStickyContainer>
-                <Laptev/>
-            </BottomStickyContainer>
-        </div>
-    </>
+    <div>
+        <SocialIcons/>
+        <Avatar/>
+        <AboutText/>
+    </div>
 );
 
 export default Page;

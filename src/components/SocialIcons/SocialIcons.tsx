@@ -7,10 +7,10 @@ import {
     SHOW_SOCIAL,
     TELEGRAM_URL,
     X_URL
-} from '@/shared/constants';
+} from './SocialIcons.constants';
 import { EmailLink } from './EmailLink/EmailLink';
 
-import styles from './Social.module.scss';
+import styles from './SocialIcons.module.scss';
 
 export const SocialIcons: React.FC = () => {
     if (!Boolean(SHOW_SOCIAL)) {
