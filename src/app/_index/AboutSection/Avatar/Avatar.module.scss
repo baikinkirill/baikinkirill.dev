@@ -1,0 +1,27 @@
+@import "@/shared/styles/colors";
+
+.parent {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	.greeting {
+		position: absolute;
+
+		display: flex;
+		align-items: self-start;
+
+		width: 100%;
+		top: -5%;
+		left: 60%;
+
+		.title {
+			font-size: 19px;
+
+			b {
+				color: $primary-color;
+			}
+		}
+	}
+}

@@ -12,7 +12,7 @@ export const RadialBackgroundGradient: React.FC<RadialBackgroundGradientProps> =
     const { children, height, width, childrenPadding } = props;
 
     return (
-        <div className={styles.container} style={{ width, height }}>
+        <figure className={styles.container} style={{ width, height }}>
             <div className={styles.backgroundGradient}/>
             <div className={styles.foregroundGradient}/>
 
@@ -21,6 +21,6 @@ export const RadialBackgroundGradient: React.FC<RadialBackgroundGradientProps> =
                     {children}
                 </div>
             )}
-        </div>
+        </figure>
     );
 };
