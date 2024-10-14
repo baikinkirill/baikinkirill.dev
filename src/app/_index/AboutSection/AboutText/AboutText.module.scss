@@ -1,0 +1,26 @@
+@import "@/shared/styles/colors";
+
+.parent {
+	.title {
+		display: inline-block;
+		font-size: 50px;
+		width: 60%;
+		font-weight:400;
+		line-height: 63px;
+		letter-spacing: 0.02em;
+
+		.ellipse {
+			width: 120%;
+			height: 120%;
+		}
+
+		b {
+			color: $primary-color;
+		}
+	}
+
+	.subTitle {
+		font-size: 36px;
+	}
+}
+
