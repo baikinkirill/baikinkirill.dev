@@ -3,7 +3,7 @@ import avatar from '@/shared/illustrations/avatar/avatar.png';
 import Image from 'next/image';
 import { RadialBackgroundGradient } from '@/components/RadialBackgroundGradient';
 
-export const Avatar = () => {
+export const Avatar: React.FC = () => {
     return (
         <div>
             <RadialBackgroundGradient>

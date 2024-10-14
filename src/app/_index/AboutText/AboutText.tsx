@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './AboutText.module.scss';
 import { Ellipse } from '@/components/Ellipse';
 
-export const AboutText = () => {
+export const AboutText: React.FC = () => {
     return (
         <div className={styles.aboutText}>
             <span className={styles.title}>
