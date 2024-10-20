@@ -12,10 +12,10 @@
 	position: absolute;
 	z-index: 1;
 
-	width: 50%;
-	height: 50%;
+	width: 60%;
+	height: 60%;
 
-	background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.6) 17.71%, rgba(67, 67, 67, 0) 100%);
+	background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.3) 17.71%, rgba(67, 67, 67, 0.0) 100%);
 }
 
 .foregroundGradient {
@@ -30,6 +30,8 @@
 
 .children{
 	z-index: 3;
+	position: relative;
 
-	padding: 60px
+	width: 60%;
+	height: 60%;
 }

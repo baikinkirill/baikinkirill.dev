@@ -10,7 +10,7 @@ export const AboutText: React.FC = () => {
             <span className={styles.title}>
               I am a Software Engineer with a focus on <Ellipse className={styles.ellipse}><b>frontend</b></Ellipse>
             </span>
-            <p>Because I started my career with web application development</p>
+            <p className={styles.subTitle}>Because I started my career with web application development</p>
         </div>
     );
 };
