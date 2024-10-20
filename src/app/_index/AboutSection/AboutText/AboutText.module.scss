@@ -3,10 +3,10 @@
 .parent {
 	.title {
 		display: inline-block;
-		font-size: 50px;
-		width: 60%;
+		font-size: max(27px, min(45px, 3vw));
+		width: 70%;
 		font-weight:400;
-		line-height: 63px;
+		line-height: 2cap;
 		letter-spacing: 0.02em;
 
 		.ellipse {
@@ -20,7 +20,15 @@
 	}
 
 	.subTitle {
-		font-size: 36px;
+		font-size: max(14px, min(18px, 1vw));
+		line-height: 1.8cap;
 	}
 }
 
+@media (max-width: 1300px) {
+	.parent {
+		.title {
+			width: 100%;
+		}
+	}
+}

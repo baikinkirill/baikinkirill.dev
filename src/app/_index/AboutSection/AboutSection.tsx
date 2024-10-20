@@ -9,7 +9,7 @@ export const AboutSection: React.FC = () => {
     return (
         <SectionLayout className={styles.parent}>
             <Avatar/>
-            <div>
+            <div className={styles.textParent}>
                 <AboutText/>
                 <SocialIcons/>
             </div>

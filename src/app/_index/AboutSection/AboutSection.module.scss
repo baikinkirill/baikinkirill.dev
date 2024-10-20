@@ -3,6 +3,32 @@
 
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
 
 	height: 100vh;
+
+	.textParent {
+		width: 100%;
+	}
+}
+
+@media (max-width: 1000px) {
+	.parent {
+		flex-direction: column;
+		gap: 50px;
+	}
+}
+
+@media (orientation: portrait) and (max-width: 1000px) and (min-width: 500px) {
+	.parent {
+		.textParent {
+			width: 70%;
+		}
+	}
+}
+
+@media (orientation: landscape) {
+	.parent {
+		flex-direction: row;
+	}
 }

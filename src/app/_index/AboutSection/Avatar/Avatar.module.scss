@@ -1,10 +1,17 @@
 @import "@/shared/styles/colors";
 
 .parent {
+	margin: 0;
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: relative;
+
+	.image {
+		width: max(220px, min(350px, 45vw));
+		height: max(220px, min(350px, 45vw));
+	}
 
 	.greeting {
 		position: absolute;
@@ -17,11 +24,62 @@
 		left: 60%;
 
 		.title {
-			font-size: 19px;
+			font-size: max(14px, min(19px, 5vw));
 
 			b {
 				color: $primary-color;
 			}
+		}
+
+		.arrow{
+			transform: rotate(00deg);
+			width: 120px;
+		}
+	}
+}
+
+
+@media (max-width: 1000px) {
+	.parent {
+		margin-top: 50px;
+
+		.image {
+			width: max(220px, min(350px, 80vw));
+			height: max(220px, min(350px, 80vw));
+		}
+
+		.greeting {
+			top: -20%;
+			left: 0;
+
+			.arrow{
+				transform: rotate(60deg) translate(160%, -110%) scaleX(-1);
+				width: 70px;
+			}
+		}
+	}
+}
+
+@media (max-width: 400px) and (max-height: 700px) {
+	.parent {
+		.image {
+			width: max(200px, min(350px, 70vw));
+			height: max(200px, min(350px, 70vw));
+		}
+
+		.greeting {
+			.title {
+				font-size: 14px;
+			}
+		}
+	}
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+	.parent {
+		.image {
+			width: max(220px, min(350px, 80vh));
+			height: max(220px, min(350px, 80vh));
 		}
 	}
 }

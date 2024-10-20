@@ -10,12 +10,12 @@ export const Avatar: React.FC = () => {
     return (
         <div className={styles.parent}>
             <div className={styles.greeting}>
-                <Arrow/>
+                <Arrow className={styles.arrow}/>
                 <p className={styles.title}>Hello! I Am <b>Baikin Kirill</b></p>
             </div>
 
-            <RadialBackgroundGradient>
-                <Image src={avatar} alt="Avatar" width={240} height={240}/>
+            <RadialBackgroundGradient className={styles.image}>
+                <Image src={avatar} alt="Avatar" fill style={{ objectFit: 'contain' }}/>
             </RadialBackgroundGradient>
         </div>
     );
