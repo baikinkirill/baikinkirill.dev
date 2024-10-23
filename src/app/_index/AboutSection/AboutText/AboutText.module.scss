@@ -3,7 +3,7 @@
 .parent {
 	.title {
 		display: inline-block;
-		font-size: max(27px, min(45px, 3vw));
+		font-size: clamp(27px, 3vw, 45px);
 		width: 70%;
 		font-weight:400;
 		line-height: 2cap;
@@ -20,7 +20,7 @@
 	}
 
 	.subTitle {
-		font-size: max(14px, min(18px, 1vw));
+		font-size: clamp(14px, 1vw, 18px);
 		line-height: 1.8cap;
 	}
 }
