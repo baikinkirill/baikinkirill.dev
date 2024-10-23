@@ -1,34 +1,52 @@
 .parent {
-	display: flex;
-
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-
 	height: 100vh;
 
-	.textParent {
-		width: 100%;
+	.content {
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+
+		height: 100%;
+
+		position: relative;
+
+		.laptev {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+
+		.textParent {
+			width: 100%;
+		}
 	}
 }
 
 @media (max-width: 1000px) {
 	.parent {
-		flex-direction: column;
-		gap: 50px;
+		.content {
+			flex-direction: column;
+			gap: 50px;
+		}
 	}
 }
 
 @media (orientation: portrait) and (max-width: 1000px) and (min-width: 500px) {
 	.parent {
-		.textParent {
-			width: 70%;
+		.content {
+			.textParent {
+				width: 70%;
+			}
 		}
 	}
 }
 
 @media (orientation: landscape) {
 	.parent {
-		flex-direction: row;
+		.content {
+			flex-direction: row;
+		}
 	}
 }

@@ -9,8 +9,8 @@ interface SectionLayoutProps {
 
 export const SectionLayout: React.FC<SectionLayoutProps> = ({ children, className }) => {
     return (
-        <section className={[styles.parent, className].join(' ')}>
+        <main className={[styles.parent, className].join(' ')}>
             {children}
-        </section>
+        </main>
     );
 };

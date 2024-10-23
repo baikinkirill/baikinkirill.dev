@@ -9,8 +9,8 @@
 	position: relative;
 
 	.image {
-		width: max(220px, min(350px, 45vw));
-		height: max(220px, min(350px, 45vw));
+		width: clamp(220px, 45vw, 350px);
+		height: clamp(220px, 45vw, 350px);
 	}
 
 	.greeting {
@@ -24,7 +24,7 @@
 		left: 60%;
 
 		.title {
-			font-size: max(14px, min(19px, 5vw));
+			font-size: clamp(14px, 5vw, 19px);
 
 			b {
 				color: $primary-color;
@@ -41,11 +41,9 @@
 
 @media (max-width: 1000px) {
 	.parent {
-		margin-top: 50px;
-
 		.image {
-			width: max(220px, min(350px, 80vw));
-			height: max(220px, min(350px, 80vw));
+			width: clamp(220px, 80vw, 350px);
+			height: clamp(220px, 80vw, 350px);
 		}
 
 		.greeting {
@@ -63,13 +61,14 @@
 @media (max-width: 400px) and (max-height: 700px) {
 	.parent {
 		.image {
-			width: max(200px, min(350px, 70vw));
-			height: max(200px, min(350px, 70vw));
+			width: clamp(200px, 60vw, 350px);
+			height: clamp(200px, 60vw, 350px);
 		}
 
 		.greeting {
 			.title {
-				font-size: 14px;
+				font-size: 12px;
+				line-height: 7cap;
 			}
 		}
 	}
@@ -78,8 +77,15 @@
 @media (orientation: landscape) and (max-height: 600px) {
 	.parent {
 		.image {
-			width: max(220px, min(350px, 80vh));
-			height: max(220px, min(350px, 80vh));
+			width: clamp(220px, 70vw, 350px);
+			height: clamp(220px, 70vw, 350px);
+		}
+
+		.greeting {
+			.title {
+				font-size: 12px;
+				line-height: 7cap;
+			}
 		}
 	}
 }

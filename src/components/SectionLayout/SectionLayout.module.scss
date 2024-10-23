@@ -2,7 +2,7 @@
 	padding: 80px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1000px) or (max-height: 500px) {
 	.parent {
 		padding: 40px;
 	}
