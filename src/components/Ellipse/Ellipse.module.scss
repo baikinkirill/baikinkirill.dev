@@ -1,0 +1,18 @@
+.parent {
+	display: inline-flex;
+
+	align-items: center;
+	justify-content: center;
+
+	width: fit-content;
+	height: fit-content;
+
+	position: relative;
+}
+
+.ellipse {
+	position: absolute;
+
+	width: 115%;
+	height: 115%;
+}

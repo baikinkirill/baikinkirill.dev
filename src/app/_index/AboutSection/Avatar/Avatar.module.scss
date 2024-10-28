@@ -1,0 +1,91 @@
+@import "@/shared/styles/colors";
+
+.parent {
+	margin: 0;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+
+	.image {
+		width: clamp(220px, 45vw, 350px);
+		height: clamp(220px, 45vw, 350px);
+	}
+
+	.greeting {
+		position: absolute;
+
+		display: flex;
+		align-items: self-start;
+
+		width: 100%;
+		top: -5%;
+		left: 60%;
+
+		.title {
+			font-size: clamp(14px, 5vw, 19px);
+
+			b {
+				color: $primary-color;
+			}
+		}
+
+		.arrow{
+			transform: rotate(00deg);
+			width: 120px;
+		}
+	}
+}
+
+
+@media (max-width: 1000px) {
+	.parent {
+		.image {
+			width: clamp(220px, 80vw, 350px);
+			height: clamp(220px, 80vw, 350px);
+		}
+
+		.greeting {
+			top: -20%;
+			left: 0;
+
+			.arrow{
+				transform: rotate(60deg) translate(160%, -110%) scaleX(-1);
+				width: 70px;
+			}
+		}
+	}
+}
+
+@media (max-width: 400px) and (max-height: 700px) {
+	.parent {
+		.image {
+			width: clamp(200px, 70vw, 350px);
+			height: clamp(200px, 70vw, 350px);
+		}
+
+		.greeting {
+			.title {
+				font-size: 12px;
+				line-height: 7cap;
+			}
+		}
+	}
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+	.parent {
+		.image {
+			width: clamp(220px, 70vh, 350px);
+			height: clamp(220px, 70vh, 350px);
+		}
+
+		.greeting {
+			.title {
+				font-size: 12px;
+				line-height: 7cap;
+			}
+		}
+	}
+}

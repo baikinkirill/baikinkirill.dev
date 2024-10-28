@@ -1,0 +1,52 @@
+.parent {
+	height: 100vh;
+
+	.content {
+		display: flex;
+
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+
+		height: 100%;
+
+		position: relative;
+
+		.laptev {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+		}
+
+		.textParent {
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 1000px) {
+	.parent {
+		.content {
+			flex-direction: column;
+			gap: 50px;
+		}
+	}
+}
+
+@media (orientation: portrait) and (max-width: 1000px) and (min-width: 500px) {
+	.parent {
+		.content {
+			.textParent {
+				width: 70%;
+			}
+		}
+	}
+}
+
+@media (orientation: landscape) {
+	.parent {
+		.content {
+			flex-direction: row;
+		}
+	}
+}

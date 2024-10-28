@@ -1,0 +1,15 @@
+.parent {
+	padding: 80px;
+}
+
+@media (max-width: 1000px) or (max-height: 500px) {
+	.parent {
+		padding: 40px;
+	}
+}
+
+@media (max-width: 400px) {
+	.parent {
+		padding: 30px;
+	}
+}
