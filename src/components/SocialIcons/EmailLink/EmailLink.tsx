@@ -10,7 +10,7 @@ export const EmailLink: React.FC = () => {
     }
 
     return (
-        <Link href={EMAIL_URL} className={styles.socialEmailLink}>
+        <Link title={'email link'} href={EMAIL_URL} className={styles.socialEmailLink}>
             <EmailIconLight/>
         </Link>
     );
