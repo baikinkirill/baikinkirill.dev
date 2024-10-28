@@ -6,9 +6,7 @@ export const metadata = buildMetadata();
 
 const Page: React.FC = () => (
     <main>
-        <article>
-            <AboutSection/>
-        </article>
+        <AboutSection/>
     </main>
 );
 
